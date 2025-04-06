@@ -1,0 +1,7 @@
+destinationFolder=/usr/local/MATLAB/R2024b
+agreeToLicense=yes
+mode=silent
+outputFile=/tmp/mathworks_outputfile.log
+licensePath=/tmp/license.lic
+product.MATLAB
+

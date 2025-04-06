@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface - Main Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="/static/styles.css"> -->
+</head>
+<body>
+    <div class="sidebar">
+        <button class="title">Treball Fi de Grau</button>
+        <div class="logo">upf.</div>
+        <button class="new-chat">New chat</button>
+    </div>
+    
+    <div class="main-content">
+        <div class="inputs">
+            <h2>INPUTS:</h2>
+            <input type="number" id="M" placeholder="M...">
+            <button class="pam">PAM</button>
+            <input type="number" id="SNR" placeholder="SNR...">
+            <input type="number" id="R" placeholder="Rate...">
+            <input type="number" id="threshold" placeholder="Threshold...">
+            <button onclick="calculateExponents()" class="compute-error">Compute error</button>
+        </div>
+        
+        <div class="graphic">
+            <h2>GRAPHIC:</h2>
+            <button onclick="generateGraph()" class="create-graphic">Create graphic</button>
+            <div class="plot-area" id="plot-area"></div>
+        </div>
+    </div>
+    
+    <div class="chat-box">
+        <input type="text" id="chat-input" placeholder="Tell me...">
+        <button class="send-button">&#x2191;</button>
+    </div>
+
+    <script>
+        function calculateExponents() {
+            let M = document.getElementById('M').value;
+            let SNR = document.getElementById('SNR').value;
+            let R = document.getElementById('R').value;
+            let threshold = document.getElementById('threshold').value;
+            
+            fetch(`/exponents?M=${M}&SNR=${SNR}&R=${R}&threshold=${threshold}`)
+                .then(response => response.json())
+                .then(data => {
+                    alert(`Result: ${data.result}`);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function generateGraph() {
+            document.getElementById("plot-area").style.background = "#aaa";
+        }
+    </script>
+</body>
+</html>

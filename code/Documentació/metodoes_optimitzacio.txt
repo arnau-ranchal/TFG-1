@@ -1,0 +1,8 @@
+Mètodes d'optimització implementats:
+- Gradient ascend
+- Newton method
+
+Recomenacions el chat:
+- Adam o Stochastic Gradient Ascent - per reduir memòria i càlculs
+- Nesterov Accelerated Gradient o cuasi-Newton - per a més velocitat
+- Interpolació cuadràtica o mètode de Brent

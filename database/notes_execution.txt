@@ -1,0 +1,12 @@
+Per executar a la terminal i afegir manualment les dades: 
+
+python add_data.py --constellationM 16 --simulationId "sim_001" --nodesN 50 --SNR 20 --transmissionRate 5 --errorExponent -3 --optimalRho 0.7
+
+Per veure la taula desde la terminal:
+
+ aws dynamodb scan --table-name exponents --region eu-north-1
+
+Per veure el tipus dels attributes de la taula desde la terminal:
+
+aws dynamodb describe-table --table-name exponents --region eu-north-1
+

@@ -1,0 +1,10 @@
+23/1/2025
+
+Si R >> E0'(0), rho = 0
+Si R << E0'(1), rho = 1
+Si E0'(0) < R < E0'(1), iniciarem rho_init fent interpolació de tres punts, i.e A(0), A(1), A(-1) per trobar la parabola, i agafar el màxim d'aquesta.
+
+- Falta corretgir la segona derivada (L'Alfonso esta en ello)
+- E0(-1) ens ho ha de passar el Josep
+
+- Fer interpolacio amb Hermite, spline, A(0.5)?

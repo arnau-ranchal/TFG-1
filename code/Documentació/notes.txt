@@ -1,0 +1,4 @@
+E0_v2 es una versió millorada de E0, suposadament va més ràpid. S'hauria de comprobar si dona els mateixos resultats que E0.
+
+Les derivades tretes a les funcions F0 i F0_matrix, son unes derivades que només van bé si la quadratura es gran, i.e N = 20.
+(O això es el que creuen els profes)

@@ -1,0 +1,215 @@
+/* General Styles */
+body {
+    margin: 0; /* Elimina márgenes predeterminados del body */
+    padding: 0; /* Elimina paddings predeterminados del body */
+    overflow-x: hidden; /* Previene el scroll horizontal */
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    font-size: 0.7em;
+}
+
+/* Header Styles */
+header {
+    background-color: rgb(47, 48, 79);
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%; /* Asegura que no se desborde */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+header h1 {
+    font-size: 3.5em;
+    text-align: center;
+}
+
+/* Functions Section */
+.functions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 40px auto;
+    width: 90%; /* Ajusta el ancho para que no ocupe todo el espacio */
+    max-width: 800px;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.funct1, .funct2 {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.funct1 h2, .funct2 h2 {
+    font-size: 2em; /* Más grande para destacar */
+    margin: 0 0 20px 0; /* Espacio inferior para separar del contenido */
+    text-align: center;
+    color: rgb(47, 48, 79);
+    font-weight: bold; /* Destaca el título */
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column; /* Asegura que las filas estén apiladas verticalmente */
+    gap: 15px; /* Espacio entre las filas */
+}
+
+.form-row {
+    display: flex; /* Coloca todos los inputs en una fila */
+    justify-content: center; /* Centra los inputs horizontalmente */
+    gap: 20px; /* Espacio uniforme entre los inputs */
+    align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column; /* Apila el label y el input verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    gap: 5px; /* Espacio entre el label y el input */
+    flex: 1; /* Hace que todos los inputs ocupen el mismo espacio */
+    max-width: 150px; /* Limita el ancho máximo de cada input */
+}
+
+form label {
+    font-size: 0.8em; /* Reduce el tamaño del texto de los labels */
+    font-weight: normal;
+    color: #333;
+    text-align: center; /* Centra el texto del label */
+}
+
+form input, form select {
+    width: 100%; /* Hace que los inputs ocupen todo el ancho disponible dentro de su contenedor */
+    padding: 5px; /* Espaciado interno */
+    font-size: 0.8em; /* Tamaño del texto */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center; /* Centra el texto dentro del input */
+}
+
+
+
+/* Botones generales */
+form button.compute-error, .funct2 button.create-graphic {
+    display: block; /* Asegura que el botón ocupe toda la línea */
+    margin: 0 auto; /* Centra el botón horizontalmente */
+    background-color: rgb(47, 48, 79);
+    color: white;
+    border: none;
+    padding: 6px 10px; /* Reduce el tamaño del botón */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em; /* Reduce el tamaño del texto */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button.compute-error:hover, .funct2 button.create-graphic:hover {
+    background-color: rgb(60, 60, 100); /* Color más claro al pasar el ratón */
+}
+
+form button.compute-error:active, .funct2 button.create-graphic:active {
+    background-color: rgb(30, 30, 50); /* Color más oscuro al hacer clic */
+    transform: scale(0.95); /* Efecto de reducción al presionar */
+}
+
+/* Chat Section */
+.chat-section {
+    width: 100%; /* Asegura que ocupe todo el ancho de la pantalla */
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    background-color: #f0f0f0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.chat-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.chat-box h2 {
+    font-size: 2em; /* Tamaño del título */
+    text-align: center;
+    margin: 0 0 10px 0; /* Espacio inferior para separar del contenido */
+    color: rgb(47, 48, 79); /* Color acorde al diseño */
+    font-weight: bold; /* Destaca el título */
+}
+
+.chat-input-container {
+    display: flex; /* Alinea el input y el botón en una fila */
+    gap: 10px; /* Espacio entre el input y el botón */
+    width: 100%;
+}
+
+.chat-input-container input#chat-input {
+    flex: 1; /* Hace que el input ocupe todo el espacio disponible */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em; /* Tamaño del texto */
+}
+
+.chat-input-container button.send-button {
+    background-color: rgb(47, 48, 79); /* Color del botón */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px; /* Tamaño del botón */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em; /* Tamaño del icono */
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.chat-input-container button.send-button:hover {
+    background-color: rgb(50, 50, 100); /* Color más oscuro al pasar el ratón */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+
+.chat-input-container button.send-button:active {
+    background-color: rgb(30, 30, 50); /* Color más oscuro al hacer clic */
+    transform: scale(0.95); /* Efecto de reducción al presionar */
+}
+
+/* Footer */
+footer {
+    background-color: rgb(47, 48, 79);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%; /* Asegura que no se desborde */
+    margin-top: 20px;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+footer a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}

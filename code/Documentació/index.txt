@@ -1,0 +1,40 @@
+TASK 1 
+Implementació E0 amb fors 
+
+TASK 2
+Implementació E0 amb matrius
+
+TASK 3
+Gràfics dels temps d'execució de E0
+
+TASK 4 
+Implementació F0 amb fors i matrius + Gràfics comparant
+els temps d'execució de E0 respete la mida de M
+
+TASK 5 
+Aplicar F0 amb fors i matrius per diferents quadratures (fins
+nodes N = 20) i comparar temps d'execució
+
+TASK 6
+Intento fallido de pararelizar los fors de E0
+
+TASK 7
+Parfor para ver si se calcula mas rápido E(rho) para rho inicializada en 0 y delta = 0.001
+
+TASK 8
+Gradient ascent + Newton method i comparacions de temps
+El newton sembla que el que millor :)
+
+-----------------------------
+He modificat el NM i he tret la interpolació d'Hermites amb els punts (rho = 0, 0) i (rho = 1, f1) i les derivades a dp1 = E'(0)-R i dp2 = E'(1)-R = dp2. Ara ens hem trobat que amb la interpolació obtindrem sempre un polinomi de grau 3, per lo que al fer la derivada ens trobem que aquesta es de grau 2. Això implica que si igualem a zero i resolem, ens trobarem dos punts crítics, un màxim, i un mínim. Hem fet manualment la segona derivada generalitzada per poder treure la rho inicial.
+----------------------------
+
+TASK 9 
+Fer plano temps respecte M y N de la funció F0_F0p()
+
+TASK 10
+El mateix pero tambe de F0_matrix, i el temps total que he decidit que sigui temps_F0_F0p + 3 * temps_F0_matrix, on en aquí he decidit que 3 son les iteracions que el newton farà.
+He fet una funció a part que et calcula el temps total en cas de guardar les dades (les arrays) previament per si no es vol tornar a executar.
+
+
+
