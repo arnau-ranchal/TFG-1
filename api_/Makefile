@@ -1,4 +1,4 @@
-# Makefile simplificado y compatible
+# Makefile 
 
 # Compilador y flags
 CXX := g++
@@ -9,7 +9,7 @@ LDFLAGS := -shared
 BUILD_DIR := build
 
 # Fuentes y objetos
-SOURCES := exponents/exponents.cpp graphics/graphics.cpp
+SOURCES := exponents/exponents.cpp
 OBJECTS := $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(notdir $(SOURCES)))
 
 # Objetivo principal
@@ -22,10 +22,6 @@ $(BUILD_DIR)/libfunctions.so: $(OBJECTS)
 
 # Regla genérica para objetos
 $(BUILD_DIR)/%.o: exponents/%.cpp
-	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-$(BUILD_DIR)/%.o: graphics/%.cpp
 	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
 

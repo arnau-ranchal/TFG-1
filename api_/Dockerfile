@@ -1,3 +1,4 @@
+
 # Imagen base con Python 3.10
 FROM python:3.10-slim
 
@@ -5,14 +6,19 @@ FROM python:3.10-slim
 RUN apt-get update && apt-get install -y \
     g++ \
     make \
+    nodejs \
+    npm \
     && rm -rf /var/lib/apt/lists/*
 
 # Crear directorio de trabajo
 WORKDIR /app
 
-# Instalar dependencias de Python primero (para aprovechar la caché de Docker)
+# Dependències de c++, Python (requriements.txt) i js
 COPY Makefile requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
+
+COPY package*.json ./
+RUN npm install
 
 # Copiar archivos al contenedor
 COPY . .

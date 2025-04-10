@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TFG API</title>
+
+    <!-- Estil del html -->
+    <!-- <link rel="stylesheet" href="styles.css"/> --> <!-- Per obrir directament al navegador -->
+    <link rel="stylesheet" href="/static/styles.css"> <!-- Pel docker -->
+
+    <!-- Importa D3 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Les funcions estan definides a script.js -->
+    <!-- <script src="script.js"></script> --> <!-- Pel obrir directament amb el navegador -->
+    <!-- <script src="/static/script.js"></script> Pel docker -->
+    <script src="/static/script.js?v=1.2"></script>
+
+
+</head>
+<body>
+    <header id="header">
+        <div id="logo">TFG API</div>
+        <h1 id="titulo">Welcome to my API</h1>
+    </header>
+
+    <section class="functions">
+        <!-- Exponents UI (ya funcional) -->
+        <article class="funct1">
+            <h2 id="exponents">Exponents:</h2>
+            <form method="get">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="M">M</label>
+                        <input type="text" id="M" placeholder="M...">
+                    </div>
+                    <div class="input-group">
+                        <label for="TypeModulation">Type</label>
+                        <select id="TypeModulation">
+                            <option value="PAM">PAM</option>
+                            <option value="QAM">QAM</option>
+                            <option value="PSK">PSK</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="SNR">SNR</label>
+                        <input type="text" id="SNR" placeholder="SNR...">
+                    </div>
+                    <div class="input-group">
+                        <label for="R">Rate</label>
+                        <input type="text" id="R" placeholder="Rate...">
+                    </div>
+                    <div class="input-group">
+                        <label for="N">Quadrature</label>
+                        <input type="text" id="N" placeholder="Quadrature...">
+                    </div>
+                </div>
+                <button type="submit" class="compute-error" onclick="calculateExponents(event)">Compute error</button>
+                <div class="result" id="result"></div>
+            </form>
+        </article>
+
+        <!-- GRAPHICS SECTION -->
+        <article class="funct2">
+            <h2 id="graphics">Graphic:</h2>
+            <form onsubmit="generateGraph(event)">
+                <!-- Parámetros comunes en una sola fila -->
+                <div class="input-group-row">
+                    <div class="input-group">
+                        <label for="plotType">Plot Type:</label>
+                        <select id="plotType">
+                            <option value="linear">Linear</option>
+                            <option value="log">Log</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="lineType">Line Type:</label>
+                        <input type="text" id="lineType" placeholder="-">
+                    </div>
+                    <div class="input-group">
+                        <label for="lineColor">Color:</label>
+                        <input type="text" id="lineColor" placeholder="steelblue">
+                    </div>
+                </div>
+
+                <!-- From Function -->
+                <h3>From Function</h3>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="yVar">Y:</label>
+                        <select id="yVar">
+                            <option value="ErrorProb">Probability error</option>
+                            <option value="Exponents">Exponents</option>
+                            <option value="Rho">Optimal rho</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="xVar">X:</label>
+                        <select id="xVar">
+                            <option value="M">M</option>
+                            <option value="SNR">SNR</option>
+                            <option value="Rate">Rate</option>
+                            <option value="N">N</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="xRange">X Range:</label>
+                        <input type="text" id="xRange" placeholder="e.g. 1,100">
+                    </div>
+                    <div class="input-group">
+                        <label for="points">Points:</label>
+                        <input type="number" id="points" value="50">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="fixedM">Modulation</label>
+                        <input type="text" id="fixedM" placeholder="Modulation">
+                    </div>
+                    <div class="input-group">
+                        <label for="funcTypeModulation">Type</label>
+                        <select id="funcTypeModulation">
+                            <option value="PAM">PAM</option>
+                            <option value="QAM">QAM</option>
+                            <option value="PSK">PSK</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="fixedSNR">SNR</label>
+                        <input type="text" id="fixedSNR" placeholder="SNR">
+                    </div>
+                    <div class="input-group">
+                        <label for="fixedRate">Rate</label>
+                        <input type="text" id="fixedRate" placeholder="Rate">
+                    </div>
+                    <div class="input-group">
+                        <label for="fixedN">Quadrature</label>
+                        <input type="text" id="fixedN" placeholder="Quadrature">
+                    </div>
+                </div>
+
+                <!-- Botones alineados y centrados -->
+                <div class="manual-button-row">
+                    <button type="button" class="compute-error" onclick="plotFromFunction()">Plot From Function</button>
+                    <button type="button" id="toggleManualBtn" class="invert-button" onclick="toggleManualInputs()">Add inputs manually</button>
+                </div>
+
+
+                <!-- Plot Manual oculto inicialmente -->
+                <div id="manual-section" style="display: none;">
+                    <h3>Manual Plot</h3>
+                    <textarea id="xValues" placeholder="x values (comma-separated)"></textarea>
+                    <textarea id="yValues" placeholder="y values (comma-separated)"></textarea>
+                    <button type="button" onclick="plotManually()">Plot Manually</button>
+                </div>
+
+                <div id="plot-output"></div>
+                <div class="result" id="plot-result"></div>
+            </form>
+        </article>
+        </section>
+
+</body>
+</html>

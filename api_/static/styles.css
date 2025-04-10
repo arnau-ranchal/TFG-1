@@ -36,13 +36,16 @@ header h1 {
 
 .funct1, .funct2 {
     background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    gap: 25px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .funct1 h2, .funct2 h2 {
@@ -53,6 +56,54 @@ header h1 {
     font-weight: bold; /* Destaca el título */
 }
 
+/* Ajustar la gràfica per a que no es surti de la box */
+.funct2 {
+    overflow-x: auto;
+}
+
+.funct2 svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tooltip gráfico */
+#plot-output .tooltip {
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+#plot-output {
+    position: relative;
+    overflow: visible;
+    padding-bottom: 50px;
+    max-width: 100%;
+}
+
+#plot-controls {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 12px;
+    padding-bottom: 10px;
+}
+
+#plot-controls label {
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    color: #333;
+}
+
+
+#plot-controls input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+    transform: scale(1.1); /* un pelín más grande */
+}
+
+
 /* Form Styles */
 form {
     display: flex;
@@ -61,41 +112,127 @@ form {
 }
 
 .form-row {
-    display: flex; /* Coloca todos los inputs en una fila */
-    justify-content: center; /* Centra los inputs horizontalmente */
-    gap: 20px; /* Espacio uniforme entre los inputs */
-    align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    display: flex;
+    flex-wrap: wrap; /* Permite que los inputs pasen a una nueva línea si no caben */
+    justify-content: center;
+    gap: 20px;
+    align-items: flex-start;
+    width: 100%;
 }
 
 .input-group {
     display: flex;
-    flex-direction: column; /* Apila el label y el input verticalmente */
-    align-items: center; /* Centra los elementos horizontalmente */
-    gap: 5px; /* Espacio entre el label y el input */
-    flex: 1; /* Hace que todos los inputs ocupen el mismo espacio */
-    max-width: 150px; /* Limita el ancho máximo de cada input */
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 120px; /* Para permitir adaptabilidad en pantallas pequeñas */
+    max-width: 180px;
+}
+
+.input-group-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 form label {
-    font-size: 0.8em; /* Reduce el tamaño del texto de los labels */
-    font-weight: normal;
+    font-size: 0.95em; /* Aumenta el tamaño de letra */
+    font-weight: 500;
     color: #333;
-    text-align: center; /* Centra el texto del label */
+    text-align: center;
 }
 
 form input, form select {
-    width: 100%; /* Hace que los inputs ocupen todo el ancho disponible dentro de su contenedor */
-    padding: 5px; /* Espaciado interno */
-    font-size: 0.8em; /* Tamaño del texto */
+    width: 100%;
+    padding: 8px; /* Más espacio interno */
+    font-size: 0.9em; /* Más grande el texto */
     border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center; /* Centra el texto dentro del input */
+    border-radius: 6px;
+    text-align: center;
+}
+
+/*RESULTADOS EXPONENTS*/
+.result {
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 12px;
+    background-color: #eeeeee;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.result.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.result p {
+    margin: 0.5em 0;
+    font-size: 1.1em;
+}
+
+.result p strong {
+    color: rgb(67, 41, 77);
 }
 
 
 
 /* Botones generales */
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.manual-button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+
+#toggleManualBtn {
+    background-color: white;
+    color: rgb(47, 48, 79);
+    border: 2px solid rgb(47, 48, 79);
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+}
+
+#toggleManualBtn:hover {
+    background-color: #f3f3f3;
+    color: rgb(30, 30, 50);
+    border-color: rgb(30, 30, 50);
+}
+
+#toggleManualBtn:active {
+    background-color: #e0e0e0;
+    transform: scale(0.96);
+}
+
+.manual-button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
 form button.compute-error, .funct2 button.create-graphic {
     display: block; /* Asegura que el botón ocupe toda la línea */
     margin: 0 auto; /* Centra el botón horizontalmente */
@@ -213,3 +350,64 @@ footer a {
     margin: 0 10px;
     text-decoration: none;
 }
+
+
+form button.compute-error,
+.funct2 button,
+#toggleManualBtn {
+    background-color: rgb(47, 48, 79);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button.compute-error:hover,
+.funct2 button:hover,
+#toggleManualBtn:hover {
+    background-color: rgb(60, 60, 100);
+}
+
+form button.compute-error:active,
+.funct2 button:active,
+#toggleManualBtn:active {
+    background-color: rgb(30, 30, 50);
+    transform: scale(0.95);
+}
+
+
+#toggleManualBtn.invert-button {
+    background-color: white;
+    color: #2d2f5c;
+    border: 2px solid #2d2f5c;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#toggleManualBtn.invert-button:hover {
+    background-color: #2d2f5c;
+    color: white;
+}
+
+
+.reset-zoom-button {
+    display: block;
+    margin: 10px auto 0 auto;
+    padding: 8px 12px;
+    background-color: rgb(47, 48, 79);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-zoom-button:hover {
+    background-color: rgb(60, 60, 100);
+}
+
+
