@@ -1,5 +1,6 @@
 function calculateExponents(event) {
     event.preventDefault();
+
     const M = document.getElementById('M').value;
     const typeM = document.getElementById('TypeModulation').value;
     const SNR = document.getElementById('SNR').value;
@@ -7,8 +8,17 @@ function calculateExponents(event) {
     const N = document.getElementById('N').value;
     const resultDiv = document.getElementById('result');
 
+    // Limpiar resultados anteriores
+    resultDiv.innerHTML = "";
+    resultDiv.classList.remove('show');
+
     fetch(`/exponents?M=${M}&typeM=${typeM}&SNR=${SNR}&R=${R}&N=${N}`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Server response not OK");
+            }
+            return response.json();
+        })
         .then(data => {
             resultDiv.innerHTML = `
                 <p><strong>Probability error:</strong> ${data["Probabilidad de error"].toFixed(4)}</p>
@@ -18,32 +28,10 @@ function calculateExponents(event) {
             resultDiv.classList.add('show');
         })
         .catch(error => {
-            resultDiv.innerHTML = `<p style="color: red;">Error: ${error}</p>`;
+            console.error("Error fetching exponents:", error);
+            resultDiv.innerHTML = `<p style="color: red; font-weight: bold;">⚠️ Unable to process the data. Please verify your inputs.</p>`;
             resultDiv.classList.add('show');
         });
-}
-
-function plotManually() {
-    const x = document.getElementById('xValues').value.split(',').map(Number);
-    const y = document.getElementById('yValues').value.split(',').map(Number);
-    const color = document.getElementById('lineColor').value || 'steelblue';
-    const plotType = document.getElementById('plotType').value;
-    const lineType = document.getElementById('lineType').value || '-';
-
-    const rang_x = [Math.min(...x), Math.max(...x)];
-
-    const payload = { x, y, rang_x, color, lineType, plotType };
-
-    fetch('/plot_manually', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    })
-    .then(response => response.text())
-    .then(svg => {
-        document.getElementById('plot-output').innerHTML = svg;
-    })
-    .catch(console.error);
 }
 
 function plotFromFunction() {
@@ -52,30 +40,41 @@ function plotFromFunction() {
     const [min, max] = document.getElementById('xRange').value.split(',').map(Number);
     const points = Number(document.getElementById('points').value);
     const typeModulation = document.getElementById('funcTypeModulation').value;
-    const M = parseFloat(document.getElementById('fixedM').value);
-    const SNR = parseFloat(document.getElementById('fixedSNR').value);
-    const Rate = parseFloat(document.getElementById('fixedRate').value);
-    const N = parseFloat(document.getElementById('fixedN').value);
+
+    // Recoger todos los valores fijos
+    const M = document.getElementById('fixedM').value;
+    const SNR = document.getElementById('fixedSNR').value;
+    const Rate = document.getElementById('fixedRate').value;
+    const N = document.getElementById('fixedN').value;
+
+    const inputs = { M, SNR, Rate, N };
+
+    // Validar campos (excepto el que se escoge como X)
+    if (isNaN(min) || isNaN(max) || min >= max) {
+        alert("Please enter a valid range (min < max) for X axis.");
+        return;
+    } 
+
+    for (const [key, value] of Object.entries(inputs)) {
+        if (key !== x && (value === '' || isNaN(parseFloat(value)))) {
+            alert(`Please enter a valid value for ${key}`);
+            return;
+        }
+    }
+
     const lineType = document.getElementById('lineType').value || '-';
     const color = document.getElementById('lineColor').value || 'steelblue';
     const plotType = document.getElementById('plotType').value;
-
-    // Validación de inputs (encara que un haura de poder estar buit per defecte...)
-    if (
-        isNaN(M) || isNaN(SNR) || isNaN(Rate) || isNaN(N) ||
-        isNaN(min) || isNaN(max) || isNaN(points) ||
-        !y || !x || !typeModulation
-    ) {
-        alert("Please fill in all required numeric and selection fields correctly.");
-        return;
-    }
 
     const payload = {
         y, x,
         rang_x: [min, max],
         points,
         typeModulation,
-        M, SNR, Rate, N,
+        M: parseFloat(M) || 0,
+        SNR: parseFloat(SNR) || 0,
+        Rate: parseFloat(Rate) || 0,
+        N: parseFloat(N) || 0,
         color,
         lineType,
         plotType
@@ -83,29 +82,85 @@ function plotFromFunction() {
 
     console.log("Sending payload to /plot_function:", payload);
 
+    document.getElementById('plot-result').innerHTML = "";
+    document.getElementById('plot-result').classList.remove('show');
+
     fetch('/plot_function', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error("Error en /plot_function");
-        }
+        if (!response.ok) throw new Error("Error en /plot_function");
         return response.json();
     })
     .then(data => {
         console.log("Datos recibidos del backend:", data); 
         drawInteractivePlot(data.x, data.y, {
-            color: color,         // color obtenido del input
-            lineType: lineType,   // línea, dash o curva, según lo escogido
-            plotType: plotType    // "linear" o "log", según el input
+            color: color,
+            lineType: lineType,
+            plotType: plotType
         });
     })
     .catch(error => {
         console.error("Error plotting data", error);
+        const resultDiv = document.getElementById('plot-result');
+        resultDiv.innerHTML = `<p style="color: red; font-weight: bold;">⚠️ Unable to process the data. Please verify your inputs.</p>`;
+        resultDiv.classList.add('show');
     });
 }
+
+
+
+function plotManually() {
+    const xInput = document.getElementById('xValues').value.trim();
+    const yInput = document.getElementById('yValues').value.trim();
+    const color = document.getElementById('lineColor').value || 'steelblue';
+    const plotType = document.getElementById('plotType').value;
+    const lineType = document.getElementById('lineType').value || '-';
+
+    const resultDiv = document.getElementById('plot-result');
+    resultDiv.innerHTML = "";
+    resultDiv.classList.remove('show');
+
+    try {
+        // Validar si se ingresaron valores
+        if (!xInput || !yInput) {
+            throw new Error("Missing input values.");
+        }
+
+        const x = xInput.split(',').map(str => Number(str.trim()));
+        const y = yInput.split(',').map(str => Number(str.trim()));
+
+        if (x.length !== y.length) {
+            throw new Error("Mismatched array lengths.");
+        }
+
+        if (x.some(isNaN) || y.some(isNaN)) {
+            throw new Error("Invalid number in inputs.");
+        }
+
+        // Ordenar por x para una gráfica coherente
+        const sorted = x.map((val, i) => ({ x: val, y: y[i] }))
+            .sort((a, b) => a.x - b.x);
+
+        const xSorted = sorted.map(p => p.x);
+        const ySorted = sorted.map(p => p.y);
+
+        drawInteractivePlot(xSorted, ySorted, {
+            color: color,
+            lineType: lineType,
+            plotType: plotType
+        });
+
+    } catch (error) {
+        console.error("Error plotting manual data:", error);
+        resultDiv.innerHTML = `<p style="color: red; font-weight: bold;">⚠️ Unable to process the data. Please verify your inputs.</p>`;
+        resultDiv.classList.add('show');
+    }
+}
+
+
 
 
 function drawInteractivePlot(x, y, opts) {
@@ -113,6 +168,8 @@ function drawInteractivePlot(x, y, opts) {
     const color = opts.color || "steelblue";
     const lineType = opts.lineType || "-";
     const plotType = opts.plotType || "linear";
+
+    d3.select("#plot-controls").remove();
 
     d3.select("#plot-output").html("");
 
@@ -210,6 +267,7 @@ function drawInteractivePlot(x, y, opts) {
         .attr("stroke-width", 2)
         .attr("d", line);
 
+    d3.select("#plot-output").selectAll(".tooltip").remove();
     const tooltip = d3.select("#plot-output")
         .append("div")
         .attr("class", "tooltip")
@@ -240,7 +298,7 @@ function drawInteractivePlot(x, y, opts) {
         })
         .on("mouseout", () => tooltip.style("opacity", 0));
 
-    // 👇 Crear los controles ANTES de leer su valor
+    // Crear los controles ANTES de leer su valor
     const controlsContainer = d3.select("#plot-output")
         .append("div")
         .attr("id", "plot-controls")
@@ -261,20 +319,25 @@ function drawInteractivePlot(x, y, opts) {
     controlsContainer.append("label")
         .style("margin-left", "15px")
         .html(`
-            <input type="checkbox" id="togglePoints" checked>
+            <input type="checkbox" id="togglePoints">
             Show points
         `);
-
+    
     controlsContainer.append("label")
         .style("margin-left", "15px")
         .html(`
-            <input type="checkbox" id="toggleGrid">
+            <input type="checkbox" id="toggleGrid" checked>
             Show grid
         `);
+    
 
-    // 👇 Ahora que los checkboxes existen, ya podemos leer su estado
+    // Ahora que los checkboxes existen, ya podemos leer su estado
     const showPointsChecked = d3.select("#togglePoints").property("checked");
     circles.style("visibility", showPointsChecked ? "visible" : "hidden");
+    if (d3.select("#toggleGrid").property("checked")) {
+        drawGrid(xScale, yScale);
+    }
+    
 
     d3.select("#togglePoints").on("change", function () {
         const visible = this.checked ? "visible" : "hidden";
@@ -326,3 +389,35 @@ function toggleManualInputs() {
     manual.style.display = visible ? "none" : "block";
     btn.textContent = visible ? "Add inputs manually" : "Hide manual inputs";
 }
+
+/* Validate data */
+    const xVarSelect = document.getElementById('xVar');
+    const inputFields = {
+        M: document.getElementById('fixedM'),
+        SNR: document.getElementById('fixedSNR'),
+        Rate: document.getElementById('fixedRate'),
+        N: document.getElementById('fixedN')
+    };
+
+    xVarSelect.addEventListener('change', () => {
+        const selectedX = xVarSelect.value;
+
+        // Recorremos todos los inputs y habilitamos o deshabilitamos según el valor seleccionado
+        for (const key in inputFields) {
+            if (key === selectedX) {
+                inputFields[key].value = ''; // Limpia el campo
+                inputFields[key].disabled = true;
+                inputFields[key].placeholder = '(Set by X)';
+            } else {
+                inputFields[key].disabled = false;
+                inputFields[key].placeholder = key + '...';
+            }
+        }
+    });
+
+    // Trigger inicial por si ya hay uno seleccionado
+    window.addEventListener('DOMContentLoaded', () => {
+        xVarSelect.dispatchEvent(new Event('change'));
+    });
+
+    

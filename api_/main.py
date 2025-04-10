@@ -71,43 +71,6 @@ async def exponents(
     }
 
 # ------------------------ GRAPHICS -------------------------------------------------------------------------
-# Classe per la petició d'introduir dades manualment
-class PlotRequest(BaseModel):
-    y: list[float]
-    x: list[float] = []
-    rang_x: list[float] = None
-    color: str = "steelblue"
-    lineType: str = "-"
-    plotType: str = "linear"
-
-# Funció que crida a clitPlot.js per generar grafics en SVG
-@app.post("/plot_manually")
-async def generate_plot_manually(plot_data: PlotRequest):
-    try:
-        json_data = json.dumps(plot_data.dict()).encode('utf-8')
-        
-        result = subprocess.run(
-            ['node', 'graphics/cliPlot.js'],
-            input=json_data,
-            capture_output=True,
-            check=True
-        )
-        
-        # Retronem el SVG generat
-        return Response(
-            content=result.stdout,
-            media_type="image/svg+xml"
-        )
-        
-    except subprocess.CalledProcessError as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"Plot generation failed: {e.stderr.decode()}"
-        )
-
-
-#------------------------------------------------------------------------------------------------------------
-# Utilitzar la funció exponents
 def call_exponents(M: float, typeModulation: str, SNR: float, Rate: float, N: float) -> list[float]:
     """
     Wrapper para la función C++ 'exponents' que retorna una lista de 3 valores:

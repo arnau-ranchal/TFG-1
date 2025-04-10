@@ -13,12 +13,9 @@ RUN apt-get update && apt-get install -y \
 # Crear directorio de trabajo
 WORKDIR /app
 
-# Dependències de c++, Python (requriements.txt) i js
+# Dependències de c++, Python (requriements.txt)
 COPY Makefile requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
-
-COPY package*.json ./
-RUN npm install
 
 # Copiar archivos al contenedor
 COPY . .

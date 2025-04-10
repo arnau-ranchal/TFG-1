@@ -30,7 +30,7 @@
             <form method="get">
                 <div class="form-row">
                     <div class="input-group">
-                        <label for="M">M</label>
+                        <label for="M">Modulation</label>
                         <input type="text" id="M" placeholder="M...">
                     </div>
                     <div class="input-group">
@@ -47,11 +47,11 @@
                     </div>
                     <div class="input-group">
                         <label for="R">Rate</label>
-                        <input type="text" id="R" placeholder="Rate...">
+                        <input type="text" id="R" placeholder="R...">
                     </div>
                     <div class="input-group">
                         <label for="N">Quadrature</label>
-                        <input type="text" id="N" placeholder="Quadrature...">
+                        <input type="text" id="N" placeholder="N...">
                     </div>
                 </div>
                 <button type="submit" class="compute-error" onclick="calculateExponents(event)">Compute error</button>
@@ -80,6 +80,10 @@
                         <label for="lineColor">Color:</label>
                         <input type="text" id="lineColor" placeholder="steelblue">
                     </div>
+<!--                     <div class="input-group">
+                        <label for="plotTitle">Title:</label>
+                        <input type="text" id="plotTitle" placeholder="Graph title">
+                    </div> -->
                 </div>
 
                 <!-- From Function -->
@@ -115,7 +119,7 @@
                 <div class="form-row">
                     <div class="input-group">
                         <label for="fixedM">Modulation</label>
-                        <input type="text" id="fixedM" placeholder="Modulation">
+                        <input type="text" id="fixedM" placeholder="M...">
                     </div>
                     <div class="input-group">
                         <label for="funcTypeModulation">Type</label>
@@ -127,22 +131,22 @@
                     </div>
                     <div class="input-group">
                         <label for="fixedSNR">SNR</label>
-                        <input type="text" id="fixedSNR" placeholder="SNR">
+                        <input type="text" id="fixedSNR" placeholder="SNR...">
                     </div>
                     <div class="input-group">
                         <label for="fixedRate">Rate</label>
-                        <input type="text" id="fixedRate" placeholder="Rate">
+                        <input type="text" id="fixedRate" placeholder="R...">
                     </div>
                     <div class="input-group">
                         <label for="fixedN">Quadrature</label>
-                        <input type="text" id="fixedN" placeholder="Quadrature">
+                        <input type="text" id="fixedN" placeholder="N...">
                     </div>
                 </div>
 
                 <!-- Botones alineados y centrados -->
-                <div class="manual-button-row">
-                    <button type="button" class="compute-error" onclick="plotFromFunction()">Plot From Function</button>
-                    <button type="button" id="toggleManualBtn" class="invert-button" onclick="toggleManualInputs()">Add inputs manually</button>
+                <div class="button-group">
+                    <button type="button" onclick="plotFromFunction()">Plot From Function</button>
+                    <button type="button" id="toggleManualBtn" onclick="toggleManualInputs()">Add inputs manually</button> 
                 </div>
 
 

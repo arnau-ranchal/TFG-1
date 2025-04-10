@@ -58,7 +58,7 @@ header h1 {
 
 /* Ajustar la gràfica per a que no es surti de la box */
 .funct2 {
-    overflow-x: auto;
+    overflow-x: hidden; /* Elimina el scroll horizontal */
 }
 
 .funct2 svg {
@@ -75,7 +75,8 @@ header h1 {
 
 #plot-output {
     position: relative;
-    overflow: visible;
+    overflow-x: hidden; /* Añade esto para prevenir barra horizontal */
+    overflow-y: visible;
     padding-bottom: 50px;
     max-width: 100%;
 }
@@ -192,6 +193,14 @@ form input, form select {
     margin-top: 20px;
 }
 
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
 .manual-button-row {
     display: flex;
     justify-content: center;
@@ -201,28 +210,6 @@ form input, form select {
     margin-top: 10px;
 }
 
-
-#toggleManualBtn {
-    background-color: white;
-    color: rgb(47, 48, 79);
-    border: 2px solid rgb(47, 48, 79);
-    padding: 10px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.85em;
-    transition: all 0.3s ease;
-}
-
-#toggleManualBtn:hover {
-    background-color: #f3f3f3;
-    color: rgb(30, 30, 50);
-    border-color: rgb(30, 30, 50);
-}
-
-#toggleManualBtn:active {
-    background-color: #e0e0e0;
-    transform: scale(0.96);
-}
 
 .manual-button-row {
     display: flex;
@@ -353,8 +340,7 @@ footer a {
 
 
 form button.compute-error,
-.funct2 button,
-#toggleManualBtn {
+.funct2 button {
     background-color: rgb(47, 48, 79);
     color: white;
     border: none;
@@ -366,32 +352,15 @@ form button.compute-error,
 }
 
 form button.compute-error:hover,
-.funct2 button:hover,
-#toggleManualBtn:hover {
+.funct2 button:hover{
     background-color: rgb(60, 60, 100);
 }
 
 form button.compute-error:active,
-.funct2 button:active,
-#toggleManualBtn:active {
+.funct2 button:active {
     background-color: rgb(30, 30, 50);
     transform: scale(0.95);
 }
-
-
-#toggleManualBtn.invert-button {
-    background-color: white;
-    color: #2d2f5c;
-    border: 2px solid #2d2f5c;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-#toggleManualBtn.invert-button:hover {
-    background-color: #2d2f5c;
-    color: white;
-}
-
 
 .reset-zoom-button {
     display: block;
