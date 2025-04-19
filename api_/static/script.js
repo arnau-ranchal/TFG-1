@@ -201,19 +201,58 @@ function initializeChart() {
         .style('color','white').style('padding','5px 10px')
         .style('border-radius','5px').style('pointer-events','none')
         .style('opacity',0);
-    const controls = d3.select('#plot-output').append('div').attr('id','plot-controls')
-        .style('display','flex').style('justify-content','center')
-        .style('gap','20px').style('margin-top','12px');
-    controls.append('button').attr('type','button').attr('class','reset-zoom-button')
-        .text('Reset Zoom').on('click', resetZoom);
+
+    // Controls wrapper (centering)
+    const controlsWrapper = d3.select('#plot-output')
+        .append('div')
+        .attr('id', 'plot-controls-wrapper')
+        .style('display', 'flex')
+        .style('justify-content', 'center')
+        .style('width', '100%');
+
+    const controls = controlsWrapper
+        .append('div')
+        .attr('id','plot-controls')
+        .style('display','flex')
+        .style('justify-content','center')
+        .style('align-items','center')
+        .style('gap','20px')
+        .style('margin-top','12px')
+        .style('flex-wrap','wrap');
+
+    // Reset Zoom button
+    controls.append('button')
+        .attr('type','button')
+        .attr('class','reset-zoom-button')
+        .text('Reset Zoom')
+        .on('click', resetZoom);
+
+    // Clear all plots button
+    controls.append('button')
+        .attr('type','button')
+        .attr('class','reset-zoom-button') // reuse same style
+        .text('Clear All Plots')
+        .on('click', () => {
+            activePlots.length = 0; // clear array without reassignment
+            renderAll();
+            updatePlotListUI();
+        });
+
+    // Grid toggle
     controls.append('label').html('<input type="checkbox" id="toggleGrid" checked> Show grid');
+
+    // Points toggle
     controls.append('label').html('<input type="checkbox" id="togglePoints"> Show points');
+
+    // Zoom behavior
     window.__zoom = d3.zoom().scaleExtent([1,10]).on('zoom',zoomed);
     window.__svg.call(window.__zoom);
-    // no reset zoom on toggle
+
+    // Grid and point toggles re-render without resetting zoom
     d3.select('#toggleGrid').on('change',()=>zoomed(window.__lastZoomEvent || { transform: d3.zoomTransform(window.__svg.node()) }));
     d3.select('#togglePoints').on('change',()=>zoomed(window.__lastZoomEvent || { transform: d3.zoomTransform(window.__svg.node()) }));
 }
+
 
 function resetZoom() {
     if(!activePlots.length) return;
@@ -251,40 +290,81 @@ function zoomed(event) {
 }
 
 function renderAll() {
-    let allX=[], allY=[];
-    activePlots.forEach(p=>{allX.push(...p.x); allY.push(...p.y);});
-    if(!allX.length) return;
-    window.__xScale.domain(d3.extent(allX));
-    window.__yScale.domain(d3.extent(allY));
-    window.__svg.call(window.__zoom.transform,d3.zoomIdentity);
-    zoomed({transform:d3.zoomIdentity});
-    const groups=window.__content.selectAll('.plot-group').data(activePlots,d=>d.plotId);
-    const enterG=groups.enter().append('g').attr('class',d=>`plot-group ${d.plotId}`);
-    enterG.append('path').attr('class','line');
-    enterG.append('g').attr('class','points');
-    window.__content.selectAll('.plot-group').each(function(d){
-        const g=d3.select(this);
-        const lg=d3.line().curve(getCurve(d.lineType))
-            .x((_,i)=>window.__xScale(d.x[i]))
-            .y((_,i)=>window.__yScale(d.y[i]));
-        g.select('path.line').datum(d.y)
-            .attr('fill','none').attr('stroke',d.color)
-            .attr('stroke-width',2).attr('d',lg);
-        const pts=g.select('g.points').selectAll('circle').data(d.y);
+    if (activePlots.length === 0) {
+        if (window.__content) window.__content.selectAll('*').remove();
+        return;
+    }
+
+    // Ensure elements are present before styling
+    if (!window.__svg || !window.__content) return;
+
+    d3.select('#plot-container').style('display', 'block');
+    d3.select('#plot-controls-wrapper').style('display', 'flex');
+
+    // Combine all data extents
+    let allX = [], allY = [];
+    activePlots.forEach(p => { allX = allX.concat(p.x); allY = allY.concat(p.y); });
+    if (allX.length === 0) return;
+    const xExtent = d3.extent(allX);
+    const yExtent = d3.extent(allY);
+
+    // Update scale domains
+    window.__xScale.domain(xExtent);
+    window.__yScale.domain(yExtent);
+
+    // Reset zoom
+    window.__svg.call(window.__zoom.transform, d3.zoomIdentity);
+
+    // Initial draw (axes + grid)
+    zoomed({ transform: d3.zoomIdentity });
+
+    // Data join for plots
+    const groups = window.__content.selectAll('.plot-group')
+        .data(activePlots, d => d.plotId);
+
+    const enterG = groups.enter()
+        .append('g')
+        .attr('class', d => `plot-group ${d.plotId}`);
+
+    enterG.append('path').attr('class', 'line');
+    enterG.append('g').attr('class', 'points');
+
+    window.__content.selectAll('.plot-group').each(function(d) {
+        const g = d3.select(this);
+        const lineGen = d3.line()
+            .curve(getCurve(d.lineType))
+            .x((_, i) => window.__xScale(d.x[i]))
+            .y((_, i) => window.__yScale(d.y[i]));
+
+        g.select('path.line')
+            .datum(d.y)
+            .attr('fill', 'none')
+            .attr('stroke', d.color)
+            .attr('stroke-width', 2)
+            .attr('d', lineGen);
+
+        const pts = g.select('g.points').selectAll('circle')
+            .data(d.y);
         pts.enter().append('circle');
         g.selectAll('g.points circle')
-            .attr('r',4).attr('fill',d.color)
-            .attr('cx',(_,i)=>window.__xScale(d.x[i]))
-            .attr('cy',(_,i)=>window.__yScale(d.y[i]))
-            .attr('visibility',d3.select('#togglePoints').property('checked')?'visible':'hidden')
-            .on('mouseover',function(event,v){
-                const i=d.y.indexOf(v);
-                window.__tooltip.html(`x: ${d.x[i]}<br>y: ${v.toFixed(4)}`)
-                    .style('left',(event.offsetX+15)+'px')
-                    .style('top',(event.offsetY-25)+'px').style('opacity',1);
-            }).on('mouseout',()=>window.__tooltip.style('opacity',0));
+            .attr('r', 4)
+            .attr('fill', d.color)
+            .attr('cx', (_, i) => window.__xScale(d.x[i]))
+            .attr('cy', (_, i) => window.__yScale(d.y[i]))
+            .attr('visibility', d3.select('#togglePoints').property('checked') ? 'visible' : 'hidden')
+            .on('mouseover', function(event, v) {
+                const i = d.y.indexOf(v);
+                window.__tooltip
+                    .html(`x: ${d.x[i]}<br>y: ${v.toFixed(4)}`)
+                    .style('left', (event.offsetX + 15) + 'px')
+                    .style('top', (event.offsetY - 25) + 'px')
+                    .style('opacity', 1);
+            })
+            .on('mouseout', () => window.__tooltip.style('opacity', 0));
+
         pts.exit().remove();
     });
+
     groups.exit().remove();
     updatePlotListUI();
 }
@@ -292,7 +372,6 @@ function renderAll() {
 function getCurve(type) {
     return { '-': d3.curveLinear, '--': d3.curveStep, 'o-': d3.curveBasis }[type] || d3.curveLinear;
 }
-
 function drawInteractivePlot(x, y, opts) {
     opts = opts || {};
     const plotId = `plot-${plotIdCounter++}`;
@@ -324,6 +403,11 @@ function updatePlotListUI() {
 function removePlot(plotId) {
     activePlots = activePlots.filter(p => p.plotId !== plotId);
     renderAll();
+    updatePlotListUI();
+    // No longer hide controls when plots are gone
+    if (activePlots.length === 0 && window.__content) {
+        window.__content.selectAll('*').remove();
+    }
 }
 
 /* Hide and Show Manual Inputs */
@@ -332,7 +416,7 @@ function toggleManualInputs() {
     const btn = document.getElementById('toggleManualBtn');
     const visible = manual.style.display === 'block';
     manual.style.display = visible ? 'none' : 'block';
-    btn.textContent = visible ? 'Add inputs manually' : 'Hide manual inputs';
+    btn.textContent = visible ? 'Add manually' : 'Hide manual inputs';
 }
 
 /* Validate data for X selection */

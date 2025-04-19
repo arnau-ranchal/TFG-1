@@ -82,13 +82,6 @@ header h1 {
     max-width: 100%;
 }
 
-#plot-controls {
-    text-align: center;
-    font-size: 0.9em;
-    margin-top: 12px;
-    padding-bottom: 10px;
-}
-
 #plot-controls label {
     font-size: 0.9em;
     display: flex;
@@ -420,3 +413,27 @@ form button.compute-error:active,
 .reset-zoom-button:hover, #plot-controls-global button:hover {
     background-color: #45a049;
 }
+/* Centrado del contenedor de controles (Reset + checkboxes) */
+#plot-output > div:has(#plot-controls) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Centrado perfecto de los controles */
+#plot-controls-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#plot-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    text-align: center;
+}
+

@@ -16,7 +16,7 @@ extern "C" {
         // Crear array estático (3 valores)
         static float results[3];
 
-        float Pe = M * SNR * R * N;
+        float Pe = M * SNR * R * N/100;
         float exp = pow(Pe, 2);
         float rho = log(Pe);
 
