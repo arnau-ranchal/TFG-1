@@ -1,0 +1,52 @@
+1.Construir y subir tu imagen Docker (utilitzar el Dockerfile de la carpeta Server):
+# Construir la imagen
+docker build -t mi-api-fastapi .
+
+# Etiquetar para AWS ECR (reemplaza con tus datos)
+docker tag mi-api-fastapi:latest 123456789012.dkr.ecr.us-east-1.amazonaws.com/mi-api-fastapi:latest
+
+# Autenticarse en ECR
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 123456789012.dkr.ecr.us-east-1.amazonaws.com
+
+# Subir la imagen
+docker push 123456789012.dkr.ecr.us-east-1.amazonaws.com/mi-api-fastapi:latest
+
+--------------------------------------------------------------------------------
+
+2. Crear un repositorio ECR (si no existe):
+aws ecr create-repository --repository-name mi-api-fastapi --region us-east-1
+
+--------------------------------------------------------------------------------
+
+3. Desplegar usando AWS ECS (Opción recomendada):
+	1.Crear un cluster ECS:
+
+		Ve a AWS Console > ECS
+
+		Crea un nuevo cluster (elige "Networking only")
+
+		Nombre: "mi-api-cluster"
+
+	2.Crear una definición de tarea:
+
+		Especifica tu imagen ECR
+
+		Mapea el puerto 8000
+
+		Configura memoria/CPU según necesidades
+
+	3.Crear un servicio:
+
+		Selecciona tu cluster
+
+		Elige la definición de tarea creada
+
+		Tipo de lanzamiento: Fargate (sin gestionar servidores)
+
+		Configura el VPC y subnets
+
+	4.Configurar el Application Load Balancer (opcional pero recomendado):
+
+		Crea un ALB que apunte a tu servicio ECS
+
+		Esto te permitirá usar HTTPS y manejar tráfico

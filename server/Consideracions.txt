@@ -1,0 +1,19 @@
+🔐 Configuración de seguridad importante:
+	1.Security Groups:
+	Asegúrate de que tu security group permita tráfico entrante en el puerto 8000 (o 80 si usas ALB)
+
+	2.IAM Roles:
+	Asigna un rol con permisos ECR a tus instancias/containers
+
+	3.Variables de entorno sensibles:
+	Usa AWS Systems Manager Parameter Store o Secrets Manager para contraseñas/configuraciones
+
+💡 Consejos adicionales:
+	1. Monitoreo:
+	Configura CloudWatch para logs: awslogs en tu Dockerfile
+
+	2.Escalado:
+	En ECS/Fargate puedes configurar auto-scaling basado en CPU/memoria
+
+	3.DNS:
+	Si quieres un nombre bonito, usa Route 53 para apuntar a tu ALB o EC2

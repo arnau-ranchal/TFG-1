@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,6 +93,7 @@
                     <div class="input-group">
                         <label for="yVar">Y:</label>
                         <select id="yVar">
+                            <!-- Type function -->
                             <option value="ErrorProb">Probability error</option>
                             <option value="Exponents">Exponents</option>
                             <option value="Rho">Optimal rho</option>
@@ -100,16 +102,19 @@
                     <div class="input-group">
                         <label for="xVar">X:</label>
                         <select id="xVar">
+                            <!-- X variable - per decidir -->
                             <option value="M">M</option>
                             <option value="SNR">SNR</option>
                             <option value="Rate">Rate</option>
                             <option value="N">N</option>
                         </select>
                     </div>
+                    <!-- Rang x -->
                     <div class="input-group">
                         <label for="xRange">X Range:</label>
                         <input type="text" id="xRange" placeholder="e.g. 1,100">
                     </div>
+                    <!-- Punts pel plots -->
                     <div class="input-group">
                         <label for="points">Points:</label>
                         <input type="number" id="points" value="50">
@@ -117,10 +122,12 @@
                 </div>
 
                 <div class="form-row">
+                    <!-- Modulation -->
                     <div class="input-group">
                         <label for="fixedM">Modulation</label>
                         <input type="text" id="fixedM" placeholder="M...">
                     </div>
+                    <!-- Type modulation -->
                     <div class="input-group">
                         <label for="funcTypeModulation">Type</label>
                         <select id="funcTypeModulation">
@@ -129,14 +136,17 @@
                             <option value="PSK">PSK</option>
                         </select>
                     </div>
+                    <!-- SNR -->
                     <div class="input-group">
                         <label for="fixedSNR">SNR</label>
                         <input type="text" id="fixedSNR" placeholder="SNR...">
                     </div>
+                    <!-- Rate -->
                     <div class="input-group">
                         <label for="fixedRate">Rate</label>
                         <input type="text" id="fixedRate" placeholder="R...">
                     </div>
+                    <!-- Quadratura -->
                     <div class="input-group">
                         <label for="fixedN">Quadrature</label>
                         <input type="text" id="fixedN" placeholder="N...">
@@ -145,7 +155,7 @@
 
                 <!-- Botones alineados y centrados -->
                 <div class="button-group">
-                    <button type="button" onclick="plotFromFunction()">Plot From Function</button>
+                    <button type="button" onclick="plotFromFunction()">Plot</button>
                     <button type="button" id="toggleManualBtn" onclick="toggleManualInputs()">Add inputs manually</button> 
                 </div>
 
