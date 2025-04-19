@@ -1,6 +1,7 @@
 // Ensure DOM is loaded before initializing and binding functions
 window.addEventListener('DOMContentLoaded', () => {
     initializeChart();
+    drawDefaultGrid();
 });
 
 function calculateExponents(event) {
@@ -289,36 +290,33 @@ function zoomed(event) {
     d3.selectAll('g.points circle').attr('visibility', visible);
 }
 
+
 function renderAll() {
     if (activePlots.length === 0) {
         if (window.__content) window.__content.selectAll('*').remove();
+        // d3.select('#plot-controls-wrapper').style('display', 'none');
+        drawDefaultGrid();
         return;
     }
 
-    // Ensure elements are present before styling
     if (!window.__svg || !window.__content) return;
 
     d3.select('#plot-container').style('display', 'block');
     d3.select('#plot-controls-wrapper').style('display', 'flex');
 
-    // Combine all data extents
     let allX = [], allY = [];
     activePlots.forEach(p => { allX = allX.concat(p.x); allY = allY.concat(p.y); });
     if (allX.length === 0) return;
     const xExtent = d3.extent(allX);
     const yExtent = d3.extent(allY);
 
-    // Update scale domains
     window.__xScale.domain(xExtent);
     window.__yScale.domain(yExtent);
 
-    // Reset zoom
     window.__svg.call(window.__zoom.transform, d3.zoomIdentity);
 
-    // Initial draw (axes + grid)
     zoomed({ transform: d3.zoomIdentity });
 
-    // Data join for plots
     const groups = window.__content.selectAll('.plot-group')
         .data(activePlots, d => d.plotId);
 
@@ -367,11 +365,14 @@ function renderAll() {
 
     groups.exit().remove();
     updatePlotListUI();
+    d3.select('#plot-controls-wrapper').style('display', 'flex');
 }
 
 function getCurve(type) {
     return { '-': d3.curveLinear, '--': d3.curveStep, 'o-': d3.curveBasis }[type] || d3.curveLinear;
 }
+
+
 function drawInteractivePlot(x, y, opts) {
     opts = opts || {};
     const plotId = `plot-${plotIdCounter++}`;
@@ -404,11 +405,37 @@ function removePlot(plotId) {
     activePlots = activePlots.filter(p => p.plotId !== plotId);
     renderAll();
     updatePlotListUI();
-    // No longer hide controls when plots are gone
     if (activePlots.length === 0 && window.__content) {
         window.__content.selectAll('*').remove();
+        d3.select('#plot-controls-wrapper').style('display', 'none');
+        drawDefaultGrid();
     }
 }
+
+function drawDefaultGrid() {
+    if (!window.__xScale || !window.__yScale || !window.__gX || !window.__gY || !window.__gridX || !window.__gridY) return;
+
+    window.__xScale.domain([-10, 10]);
+    window.__yScale.domain([-10, 10]);
+
+    window.__gX.call(d3.axisBottom(window.__xScale)).select('.domain').remove();
+    window.__gY.call(d3.axisLeft(window.__yScale)).select('.domain').remove();
+
+    window.__gridX.call(
+        d3.axisBottom(window.__xScale)
+            .tickSize(-window.__innerHeight)
+            .tickFormat('')
+    ).selectAll('line').attr('stroke','#ddd').attr('stroke-dasharray','2,2');
+
+    window.__gridY.call(
+        d3.axisLeft(window.__yScale)
+            .tickSize(-window.__innerWidth)
+            .tickFormat('')
+    ).selectAll('line').attr('stroke','#ddd').attr('stroke-dasharray','2,2');
+
+    d3.select('#plot-container').style('display', 'block');
+}
+
 
 /* Hide and Show Manual Inputs */
 function toggleManualInputs() {
