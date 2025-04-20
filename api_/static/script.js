@@ -383,9 +383,13 @@ function getCurve(type) {
 function drawInteractivePlot(x, y, opts) {
     opts = opts || {};
     const plotId = `plot-${plotIdCounter++}`;
-    activePlots.push({ plotId, x, y, color: opts.color || 'steelblue', lineType: opts.lineType || '-' });
+    const yLabel = document.getElementById('yVar')?.selectedOptions[0]?.text || `Y`;
+    const xLabel = document.getElementById('xVar')?.selectedOptions[0]?.text || `X`;
+    const label = `${yLabel} / ${xLabel}`;
+    activePlots.push({ plotId, x, y, color: opts.color || 'steelblue', lineType: opts.lineType || '-', label });
     renderAll();
 }
+
 
 function updatePlotListUI() {
     let container = document.getElementById('plot-list');
@@ -393,18 +397,52 @@ function updatePlotListUI() {
         container = document.createElement('div');
         container.id = 'plot-list';
         container.style.marginTop = '20px';
+        container.style.display = 'flex';
+        container.style.flexDirection = 'column';
+        container.style.alignItems = 'flex-start';
+        container.style.paddingRight = '10px';
+        container.style.boxSizing = 'border-box';
+        container.style.maxWidth = '100%';
         document.getElementById('plot-output').appendChild(container);
     }
     container.innerHTML = '<h4>Active plots:</h4>';
     activePlots.forEach((p, i) => {
         const item = document.createElement('div');
-        item.style.margin = '5px';
-        item.innerHTML = `
-            <span style=\"display:inline-block;width:15px;height:15px;background:${p.color};margin-right:10px;\"></span>
-            Graphic ${i+1}
-            <button type=\"button\" onclick=\"removePlot('${p.plotId}')\">❌ Remove</button>
-        `;
+        item.className = `legend-item ${p.plotId}`;
+        item.style.margin = '5px 0';
+        item.style.cursor = 'pointer';
+        item.style.display = 'grid';
+        item.style.gridTemplateColumns = '20px 1fr auto';
+        item.style.alignItems = 'center';
+        item.style.columnGap = '10px';
+        item.style.transition = 'transform 0.3s ease';
+        item.style.width = 'calc(100% - 20px)';
+        item.style.boxSizing = 'border-box';
+        item.style.paddingRight = '10px';
+
+        const colorBox = document.createElement('span');
+        colorBox.style.display = 'inline-block';
+        colorBox.style.width = '15px';
+        colorBox.style.height = '15px';
+        colorBox.style.background = p.color;
+
+        const textSpan = document.createElement('span');
+        textSpan.textContent = p.label;
+        textSpan.style.wordBreak = 'break-word';
+
+        const btn = document.createElement('button');
+        btn.textContent = '❌ Remove';
+        btn.type = 'button';
+        btn.style.marginRight = '10px';
+        btn.onclick = () => removePlot(p.plotId);
+
+        item.appendChild(colorBox);
+        item.appendChild(textSpan);
+        item.appendChild(btn);
         container.appendChild(item);
+
+        item.addEventListener('mouseover', () => highlightPlot(p.plotId, true));
+        item.addEventListener('mouseout', () => highlightPlot(p.plotId, false));
     });
 }
 
@@ -416,6 +454,26 @@ function removePlot(plotId) {
         window.__content.selectAll('*').remove();
         // d3.select('#plot-controls-wrapper').style('display', 'none');
         drawDefaultGrid();
+    }
+}
+
+function highlightPlot(plotId, highlight) {
+    const group = d3.select(`.plot-group.${plotId}`);
+    if (!group.empty()) {
+        group.select('path.line')
+            .transition().duration(250)
+            .attr('stroke-width', highlight ? 4 : 2)
+            .attr('opacity', highlight ? 1 : 0.8);
+        group.selectAll('circle')
+            .transition().duration(250)
+            .attr('r', highlight ? 6 : 4)
+            .attr('opacity', highlight ? 1 : 0.8);
+    }
+
+    const legendItem = document.querySelector(`.legend-item.${plotId}`);
+    if (legendItem) {
+        legendItem.style.fontWeight = highlight ? 'bold' : 'normal';
+        legendItem.style.transform = highlight ? 'scale(1.03)' : 'scale(1)';
     }
 }
 
