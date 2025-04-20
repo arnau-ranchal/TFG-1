@@ -14,7 +14,7 @@
     <!-- Les funcions estan definides a script.js -->
     <!-- <script src="script.js"></script> --> <!-- Pel obrir directament amb el navegador -->
     <!-- <script src="/static/script.js"></script> Pel docker -->
-    <script src="/static/script.js?v=1.2"></script>
+    <script src="/static/script.js?v=1.3"></script>
 
 
 </head>
@@ -159,6 +159,7 @@
                     <button type="button" id="toggleManualBtn" onclick="toggleManualInputs()">Add manually</button> 
                 </div>
 
+                <div class="result" id="plot-result"></div>
 
                 <!-- Plot Manual oculto inicialmente -->
                 <div id="manual-section" style="display: none;">
@@ -169,7 +170,6 @@
                 </div>
 
                 <div id="plot-output"></div>
-                <div class="result" id="plot-result"></div>
             </form>
         </article>
         </section>

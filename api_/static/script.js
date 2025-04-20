@@ -58,14 +58,21 @@ function plotFromFunction() {
     const inputs = { M, SNR, Rate, N };
 
     // Validar campos (excepto el que se escoge como X)
+    const resultDiv = document.getElementById('plot-result');
+    resultDiv.innerHTML = "";
+    resultDiv.classList.remove('show');
+
+    // Validar campos (excepto el que se escoge como X)
     if (isNaN(min) || isNaN(max) || min >= max) {
-        alert("Please enter a valid range (min < max) for X axis.");
+        resultDiv.innerHTML = `<p style="color: red; font-weight: bold;">⚠️ Please enter a valid range (min < max) for X axis.</p>`;
+        resultDiv.classList.add('show');
         return;
     } 
 
     for (const [key, value] of Object.entries(inputs)) {
         if (key !== x && (value === '' || isNaN(parseFloat(value)))) {
-            alert(`Please enter a valid value for ${key}`);
+            resultDiv.innerHTML = `<p style="color: red; font-weight: bold;">⚠️ Please enter a valid value for ${key}.</p>`;
+            resultDiv.classList.add('show');
             return;
         }
     }
@@ -407,7 +414,7 @@ function removePlot(plotId) {
     updatePlotListUI();
     if (activePlots.length === 0 && window.__content) {
         window.__content.selectAll('*').remove();
-        d3.select('#plot-controls-wrapper').style('display', 'none');
+        // d3.select('#plot-controls-wrapper').style('display', 'none');
         drawDefaultGrid();
     }
 }
