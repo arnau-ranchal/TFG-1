@@ -68,6 +68,15 @@ header h1 {
     display: block;
 }
 
+svg {
+    border: none;
+}
+
+.plot-container {
+    border: none;
+}
+
+
 /* Tooltip gráfico */
 #plot-output .tooltip {
     font-size: 0.85em;

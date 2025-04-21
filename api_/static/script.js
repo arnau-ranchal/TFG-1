@@ -190,6 +190,20 @@ function initializeChart() {
         .attr('viewBox', `0 0 ${width} ${height}`)
         .attr('preserveAspectRatio','xMidYMid meet')
         .style('width','100%').style('height','auto');
+    svg.append('line')  // eje inferior
+        .attr('x1', margin.left)
+        .attr('x2', width - margin.right)
+        .attr('y1', height - margin.bottom)
+        .attr('y2', height - margin.bottom)
+        .attr('stroke', 'black');
+    
+    svg.append('line')  // eje izquierdo
+        .attr('x1', margin.left)
+        .attr('x2', margin.left)
+        .attr('y1', margin.top)
+        .attr('y2', height - margin.bottom)
+        .attr('stroke', 'black');
+      
     window.__svg = svg;
     window.__g = svg.append('g').attr('class','main-group')
         .attr('transform',`translate(${margin.left},${margin.top})`);
@@ -257,7 +271,9 @@ function initializeChart() {
     window.__svg.call(window.__zoom);
 
     // Grid and point toggles re-render without resetting zoom
-    d3.select('#toggleGrid').on('change',()=>zoomed(window.__lastZoomEvent || { transform: d3.zoomTransform(window.__svg.node()) }));
+    d3.select('#toggleGrid').on('change', () =>
+        zoomed({ transform: d3.zoomTransform(window.__svg.node()) })
+      );
     d3.select('#togglePoints').on('change',()=>zoomed(window.__lastZoomEvent || { transform: d3.zoomTransform(window.__svg.node()) }));
 }
 
@@ -276,26 +292,61 @@ function resetZoom() {
     setTimeout(() => zoomed({transform:d3.zoomIdentity}), 750);
 }
 
+
+
 function zoomed(event) {
-    const t=event.transform;
+    const t = event.transform;
     window.__lastZoomEvent = event;
-    const newX=t.rescaleX(window.__xScale);
-    const newY=t.rescaleY(window.__yScale);
+
+    // 1) Rescala
+    const newX = t.rescaleX(window.__xScale);
+    const newY = t.rescaleY(window.__yScale);
+
+    // 2) Ejes (siempre los dibujamos, pero quitamos el "domain" que dibuja el marco completo)
     window.__gX.call(d3.axisBottom(newX)).select('.domain').remove();
     window.__gY.call(d3.axisLeft(newY)).select('.domain').remove();
-    if(d3.select('#toggleGrid').property('checked')){
-        window.__gridX.call(d3.axisBottom(newX).tickSize(-window.__innerHeight).tickFormat(''))
-            .selectAll('line').attr('stroke','#ddd').attr('stroke-dasharray','2,2');
-        window.__gridY.call(d3.axisLeft(newY).tickSize(-window.__innerWidth).tickFormat(''))
-            .selectAll('line').attr('stroke','#ddd').attr('stroke-dasharray','2,2');
-    } else { window.__gridX.selectAll('*').remove(); window.__gridY.selectAll('*').remove(); }
-    window.__content.attr('transform',t);
+
+    // 3) Grid toggle: data‑binding de líneas en lugar de axisBottom/Left
+    if (d3.select('#toggleGrid').property('checked')) {
+        const xTicks = newX.ticks();
+        const yTicks = newY.ticks();
+
+        // verticales
+        window.__gridX.selectAll('line')
+            .data(xTicks)
+            .join('line')
+            .attr('x1', d => newX(d))
+            .attr('x2', d => newX(d))
+            .attr('y1', 0)
+            .attr('y2', -window.__innerHeight)
+            .attr('stroke', '#ddd')
+            .attr('stroke-dasharray', '2,2');
+
+        // horizontales
+        window.__gridY.selectAll('line')
+            .data(yTicks)
+            .join('line')
+            .attr('x1', 0)
+            .attr('x2', window.__innerWidth)
+            .attr('y1', d => newY(d))
+            .attr('y2', d => newY(d))
+            .attr('stroke', '#ddd')
+            .attr('stroke-dasharray', '2,2');
+    } else {
+        // quitar todas las líneas cuando esté off
+        window.__gridX.selectAll('line').remove();
+        window.__gridY.selectAll('line').remove();
+    }
+
+    // 4) contenido (curvas, puntos, zoom, tooltips…)
+    window.__content.attr('transform', t);
     const scaleFactor = 1 / t.k;
     d3.selectAll('g.points circle').attr('r', 4 * scaleFactor);
     d3.selectAll('path.line').attr('stroke-width', 2 * scaleFactor);
     const visible = d3.select('#togglePoints').property('checked') ? 'visible' : 'hidden';
     d3.selectAll('g.points circle').attr('visibility', visible);
 }
+
 
 
 function renderAll() {
@@ -478,28 +529,13 @@ function highlightPlot(plotId, highlight) {
 }
 
 function drawDefaultGrid() {
-    if (!window.__xScale || !window.__yScale || !window.__gX || !window.__gY || !window.__gridX || !window.__gridY) return;
-
+    // Fija el dominio que quieras ver al cargar (por ejemplo de -10 a 10)
     window.__xScale.domain([-10, 10]);
     window.__yScale.domain([-10, 10]);
-
-    window.__gX.call(d3.axisBottom(window.__xScale)).select('.domain').remove();
-    window.__gY.call(d3.axisLeft(window.__yScale)).select('.domain').remove();
-
-    window.__gridX.call(
-        d3.axisBottom(window.__xScale)
-            .tickSize(-window.__innerHeight)
-            .tickFormat('')
-    ).selectAll('line').attr('stroke','#ddd').attr('stroke-dasharray','2,2');
-
-    window.__gridY.call(
-        d3.axisLeft(window.__yScale)
-            .tickSize(-window.__innerWidth)
-            .tickFormat('')
-    ).selectAll('line').attr('stroke','#ddd').attr('stroke-dasharray','2,2');
-
-    d3.select('#plot-container').style('display', 'block');
+    // Llama a zoomed con identidad para dibujar ejes y cuadrícula
+    zoomed({ transform: d3.zoomIdentity });
 }
+
 
 
 /* Hide and Show Manual Inputs */
