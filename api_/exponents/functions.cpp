@@ -1350,7 +1350,7 @@ void setX(int npoints, string xmode) {
     sizeX = npoints;
     X.resize(npoints);
     X_mat = VectorXd::Zero(sizeX);
-    if (xmode == "pam") { // pam
+    if (xmode == "PAM") { // pam
         float delta = sqrt(3 / (pow(npoints, 2) - 1));
         for (int n = 0; n < npoints / 2; n++) {
             X[n + npoints / 2] = (2 * n + 1) * delta;
@@ -1361,7 +1361,7 @@ void setX(int npoints, string xmode) {
             X[n] = -X[npoints - 1 - n];
             X_mat(n) = -X_mat(npoints - 1 - n);
         }
-    } else if (xmode == "psk") { // psk
+    } else if (xmode == "PSK") { // psk
         for (int n = 0; n < npoints; n++) {
             X[n] = (cos(2.0 * PI * double(n) / npoints) + I * sin(2.0 * PI * double(n) / npoints));
             X_mat(n) = (cos(2.0 * PI * double(n) / npoints) + I * sin(2.0 * PI * double(n) / npoints));
