@@ -2,14 +2,14 @@
 
 # Compilador y flags
 CXX := g++
-CXXFLAGS := -c -fPIC
+CXXFLAGS := -c -fPIC -Ieigen-3.4.0  # Add Eigen include path
 LDFLAGS := -shared
 
 # Directorios
 BUILD_DIR := build
 
 # Fuentes y objetos
-SOURCES := exponents/exponents.cpp
+SOURCES := exponents/exponents.cpp exponents/functions.cpp
 OBJECTS := $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(notdir $(SOURCES)))
 
 # Objetivo principal
@@ -21,7 +21,7 @@ $(BUILD_DIR)/libfunctions.so: $(OBJECTS)
 	$(CXX) $(LDFLAGS) -o $@ $^
 
 # Regla genérica para objetos
-$(BUILD_DIR)/%.o: exponents/%.cpp
+$(BUILD_DIR)/%.o: exponents/%.cpp exponents/functions.h
 	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
 

@@ -1,4 +1,3 @@
-
 # Imagen base con Python 3.10
 FROM python:3.10-slim
 
@@ -12,6 +11,9 @@ RUN apt-get update && apt-get install -y \
 
 # Crear directorio de trabajo
 WORKDIR /app
+
+COPY eigen-3.4.0 ./eigen-3.4.0
+# Explicitly copy Eigen
 
 # Dependències de c++, Python (requriements.txt)
 COPY Makefile requirements.txt ./

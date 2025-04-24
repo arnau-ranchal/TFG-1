@@ -1,9 +1,8 @@
 // exponents.cpp
 #include <cmath>
-#include <cstring>
+#include <cstring> 
 #include "functions.h"
 #include <iostream>
-#define DEBUG 0
 
 extern "C" {
 
@@ -25,11 +24,9 @@ extern "C" {
         double r;
         double e0 = GD_iid(r, rho_gd, rho_interpolated, it, N);
 
-        // Per fer debug
-        #if DEBUG
-        std::cout << "e0: " << e0 << std::endl;
-        std::cout << "rho_gd: " << rho_gd << std::endl;
-        #endif
+        // Desomentar per fer debug per la terminal
+        //std::cout << "e0: " << e0 << endl;
+        //std::cout << "rho_gd: " << rho_gd << endl;
 
         results[0] = -1; // Pe
         results[1] = e0; // exp

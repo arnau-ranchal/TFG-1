@@ -111,7 +111,6 @@ async def generate_plot_from_function(plot_data: FunctionPlotRequest):
         x_vals = np.linspace(plot_data.rang_x[0], plot_data.rang_x[1], plot_data.points)
         y_vals = []
 
-        # TODO: Treure el for i adaptar la funció exponents per a que agafi un vector
         for x_point in x_vals:
             # Ajusta els valors segons la variable independent
             args = {
