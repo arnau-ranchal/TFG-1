@@ -6,7 +6,7 @@ function [f0, f0p, f02p] = F0_fors(rho, N, q, x, w, z, SNR)
         for i = 1:N
             for k = 1:N
                 [fpResult, fptildeResult,fpt2] = fp(x, index, q, z(i)+(1i*z(k)), rho, SNR);
-                
+               
                 sumF0ik = sumF0ik + w(i)*w(k)*(fpResult)^rho;
                 sumF0pik = sumF0pik + w(i)*w(k)*(fpResult)^rho * (log(fpResult) - rho/(1+rho)^2 * fptildeResult / fpResult);
                 sumF02pik = sumF02pik + w(i)*w(k)*(fpResult)^rho * ((log(fpResult) - rho/(1+rho)^2 * fptildeResult/fpResult)^2 - rho/(1+rho)^4 * (fptildeResult/fpResult)^2 - 2/(1+rho)^3*(fptildeResult/fpResult) - rho/(1+rho)^2 * (fpt2/fpResult)) ;

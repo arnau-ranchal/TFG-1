@@ -55,7 +55,7 @@ async def exponents(
     Calcula l'exponent `Pe`, 'E' i `RHO`.
     """
     # Resultat + Retron
-    result = lib.exponents(
+    result = lib.exponents( # Crida a la funció C++
         ctypes.c_float(M),
         typeM.encode('utf-8'),  # Codificamos string a C-style
         ctypes.c_float(SNR),

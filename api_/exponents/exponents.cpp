@@ -1,10 +1,10 @@
 // exponents.cpp
-#include <cmath> // Para usar pow()
-#include <cstring>  // Para strcmp
+#include <cmath>
+#include <cstring>  // Per strcmp
 
 extern "C" {
     float* exponents(float M, const char* typeM, float SNR, float R, float N) {
-        // Adaptar M según el tipo de modulación
+        // CANVIAR A PARTIR D'AQUI ------------------------------------------------------------------
         if (strcmp(typeM, "PAM") == 0) {
             M = M;
         } else if (strcmp(typeM, "QAM") == 0) {
@@ -20,10 +20,12 @@ extern "C" {
         float exp = pow(Pe, 2);
         float rho = log(Pe);
 
+        // FINS AQUÍ ----------------------------------------------------------------------------------
+
         results[0] = Pe;
         results[1] = exp;
         results[2] = rho;
 
         return results;
     }
-}
+}    
