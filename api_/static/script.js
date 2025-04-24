@@ -399,25 +399,26 @@ function renderAll() {
             .attr('d', lineGen);
 
         const pts = g.select('g.points').selectAll('circle')
-            .data(d.y);
-        pts.enter().append('circle');
-        g.selectAll('g.points circle')
+            .data(d.x.map((xVal, i) => ({ x: xVal, y: d.y[i] })));
+        
+        pts.enter().append('circle')
+            .merge(pts)
             .attr('r', 4)
             .attr('fill', d.color)
-            .attr('cx', (_, i) => window.__xScale(d.x[i]))
-            .attr('cy', (_, i) => window.__yScale(d.y[i]))
+            .attr('cx', d => window.__xScale(d.x))
+            .attr('cy', d => window.__yScale(d.y))
             .attr('visibility', d3.select('#togglePoints').property('checked') ? 'visible' : 'hidden')
-            .on('mouseover', function(event, v, i) {
+            .on('mouseover', function(event, d) {
                 window.__tooltip
-                    .html(`x: ${d.x[i]}<br>y: ${v.toFixed(4)}`)
+                    .html(`x: ${d.x}<br>y: ${d.y.toFixed(4)}`)
                     .style('left', (event.offsetX + 15) + 'px')
                     .style('top', (event.offsetY - 25) + 'px')
                     .style('opacity', 1);
             })
-            
             .on('mouseout', () => window.__tooltip.style('opacity', 0));
-
+        
         pts.exit().remove();
+        
     });
 
     groups.exit().remove();

@@ -108,6 +108,9 @@ class FunctionPlotRequest(BaseModel):
 async def generate_plot_from_function(plot_data: FunctionPlotRequest):
     try:
         # Genera els punts x
+        # TODO: En el cas de que x = M o x = N, han de ser enters
+        #if plot_data.x in ["M", "N"]:
+
         x_vals = np.linspace(plot_data.rang_x[0], plot_data.rang_x[1], plot_data.points)
         y_vals = []
 
