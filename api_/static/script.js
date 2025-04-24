@@ -14,7 +14,7 @@ function calculateExponents(event) {
     const N = document.getElementById('N').value;
     const resultDiv = document.getElementById('result');
 
-    // Limpiar resultados anteriores
+    // Neteja resultats anteriors
     resultDiv.innerHTML = "";
     resultDiv.classList.remove('show');
 
@@ -49,7 +49,7 @@ function plotFromFunction() {
     const points = Number(document.getElementById('points').value);
     const typeModulation = document.getElementById('funcTypeModulation').value;
 
-    // Recoger todos los valores fijos
+    // Recull els valors fixos
     const M = document.getElementById('fixedM').value;
     const SNR = document.getElementById('fixedSNR').value;
     const Rate = document.getElementById('fixedRate').value;
@@ -57,12 +57,11 @@ function plotFromFunction() {
 
     const inputs = { M, SNR, Rate, N };
 
-    // Validar campos (excepto el que se escoge como X)
+    // Validar inputs
     const resultDiv = document.getElementById('plot-result');
     resultDiv.innerHTML = "";
     resultDiv.classList.remove('show');
 
-    // Validar campos (excepto el que se escoge como X)
     if (isNaN(min) || isNaN(max) || min >= max) {
         resultDiv.innerHTML = `<p style="color: red; font-weight: bold;">⚠️ Please enter a valid range (min < max) for X axis.</p>`;
         resultDiv.classList.add('show');
@@ -139,7 +138,7 @@ function plotManually() {
     resultDiv.classList.remove('show');
 
     try {
-        // Validar si se ingresaron valores
+        // Validar inputs
         if (!xInput || !yInput) {
             throw new Error("Missing input values.");
         }
@@ -155,7 +154,7 @@ function plotManually() {
             throw new Error("Invalid number in inputs.");
         }
 
-        // Ordenar por x para una gráfica coherente
+        // Ordenar x
         const sorted = x.map((val, i) => ({ x: val, y: y[i] }))
             .sort((a, b) => a.x - b.x);
 
@@ -190,14 +189,14 @@ function initializeChart() {
         .attr('viewBox', `0 0 ${width} ${height}`)
         .attr('preserveAspectRatio','xMidYMid meet')
         .style('width','100%').style('height','auto');
-    svg.append('line')  // eje inferior
+    svg.append('line')  // eix inferior
         .attr('x1', margin.left)
         .attr('x2', width - margin.right)
         .attr('y1', height - margin.bottom)
         .attr('y2', height - margin.bottom)
         .attr('stroke', 'black');
     
-    svg.append('line')  // eje izquierdo
+    svg.append('line')  // eix esquerre
         .attr('x1', margin.left)
         .attr('x2', margin.left)
         .attr('y1', margin.top)
@@ -302,16 +301,16 @@ function zoomed(event) {
     const newX = t.rescaleX(window.__xScale);
     const newY = t.rescaleY(window.__yScale);
 
-    // 2) Ejes (siempre los dibujamos, pero quitamos el "domain" que dibuja el marco completo)
+    // 2) Eixos
     window.__gX.call(d3.axisBottom(newX)).select('.domain').remove();
     window.__gY.call(d3.axisLeft(newY)).select('.domain').remove();
 
-    // 3) Grid toggle: data‑binding de líneas en lugar de axisBottom/Left
+    // 3) Grid toggle
     if (d3.select('#toggleGrid').property('checked')) {
         const xTicks = newX.ticks();
         const yTicks = newY.ticks();
 
-        // verticales
+        // verticals
         window.__gridX.selectAll('line')
             .data(xTicks)
             .join('line')
@@ -322,7 +321,7 @@ function zoomed(event) {
             .attr('stroke', '#ddd')
             .attr('stroke-dasharray', '2,2');
 
-        // horizontales
+        // horitzontals
         window.__gridY.selectAll('line')
             .data(yTicks)
             .join('line')
@@ -333,12 +332,12 @@ function zoomed(event) {
             .attr('stroke', '#ddd')
             .attr('stroke-dasharray', '2,2');
     } else {
-        // quitar todas las líneas cuando esté off
+        // treure totes les lineas cuan estigui off
         window.__gridX.selectAll('line').remove();
         window.__gridY.selectAll('line').remove();
     }
 
-    // 4) contenido (curvas, puntos, zoom, tooltips…)
+    // 4) Contingut (curvas, puntos, zoom, tooltips…)
     window.__content.attr('transform', t);
     const scaleFactor = 1 / t.k;
     d3.selectAll('g.points circle').attr('r', 4 * scaleFactor);
@@ -408,14 +407,14 @@ function renderAll() {
             .attr('cx', (_, i) => window.__xScale(d.x[i]))
             .attr('cy', (_, i) => window.__yScale(d.y[i]))
             .attr('visibility', d3.select('#togglePoints').property('checked') ? 'visible' : 'hidden')
-            .on('mouseover', function(event, v) {
-                const i = d.y.indexOf(v);
+            .on('mouseover', function(event, v, i) {
                 window.__tooltip
                     .html(`x: ${d.x[i]}<br>y: ${v.toFixed(4)}`)
                     .style('left', (event.offsetX + 15) + 'px')
                     .style('top', (event.offsetY - 25) + 'px')
                     .style('opacity', 1);
             })
+            
             .on('mouseout', () => window.__tooltip.style('opacity', 0));
 
         pts.exit().remove();
@@ -529,10 +528,10 @@ function highlightPlot(plotId, highlight) {
 }
 
 function drawDefaultGrid() {
-    // Fija el dominio que quieras ver al cargar (por ejemplo de -10 a 10)
+    // Fixa el domini que vulguis veure al carregar (per exemple de -10 a 10)
     window.__xScale.domain([-10, 10]);
     window.__yScale.domain([-10, 10]);
-    // Llama a zoomed con identidad para dibujar ejes y cuadrícula
+    // Crida a zoomed per dibuixar la graella inicial
     zoomed({ transform: d3.zoomIdentity });
 }
 
