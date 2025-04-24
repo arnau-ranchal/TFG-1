@@ -1,0 +1,551 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug2/CMakeFiles/3.26.4/CMakeSystem.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDependentOption.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug2/CMakeFiles/3.26.4/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug2/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/MSVC-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/MSVC.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-MSVC-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-MSVC.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug2/CMakeFiles/3.26.4/CMakeRCCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/MSVC-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/MSVC.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-MSVC-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-MSVC.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/awssdk/AWSSDKConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/awssdk/AWSSDKConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/awssdk/sdksCommon.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/awssdk/platformDeps.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/awssdk/compiler_settings.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-core/aws-cpp-sdk-core-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-core/aws-cpp-sdk-core-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-crt-cpp/aws-crt-cpp-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-crt-cpp/aws-crt-cpp-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-http/aws-c-http-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-io/aws-c-io-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-common/aws-c-common-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-common/aws-c-common-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-common/aws-c-common-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-common/aws-c-common-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-cal/aws-c-cal-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-cal/aws-c-cal-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-cal/aws-c-cal-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-cal/aws-c-cal-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-io/aws-c-io-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-io/aws-c-io-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-io/aws-c-io-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-compression/aws-c-compression-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-compression/aws-c-compression-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-compression/aws-c-compression-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-compression/aws-c-compression-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-http/aws-c-http-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-http/aws-c-http-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-http/aws-c-http-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-mqtt/aws-c-mqtt-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-mqtt/aws-c-mqtt-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-mqtt/aws-c-mqtt-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-mqtt/aws-c-mqtt-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-auth/aws-c-auth-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-sdkutils/aws-c-sdkutils-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-sdkutils/aws-c-sdkutils-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-sdkutils/aws-c-sdkutils-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-sdkutils/aws-c-sdkutils-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-auth/aws-c-auth-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-auth/aws-c-auth-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-auth/aws-c-auth-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-event-stream/aws-c-event-stream-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-checksums/aws-checksums-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-checksums/aws-checksums-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-checksums/aws-checksums-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-checksums/aws-checksums-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-event-stream/aws-c-event-stream-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-event-stream/aws-c-event-stream-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-event-stream/aws-c-event-stream-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-s3/aws-c-s3-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-s3/aws-c-s3-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-s3/aws-c-s3-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-s3/aws-c-s3-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-crt-cpp/aws-crt-cpp-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-crt-cpp/aws-crt-cpp-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-crt-cpp/aws-crt-cpp-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/zlib/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindZLIB.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-core/aws-cpp-sdk-core-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-core/aws-cpp-sdk-core-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-core/aws-cpp-sdk-core-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-dynamodb/aws-cpp-sdk-dynamodb-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-dynamodb/aws-cpp-sdk-dynamodb-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-core/aws-cpp-sdk-core-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-core/aws-cpp-sdk-core-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-core/aws-cpp-sdk-core-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-dynamodb/aws-cpp-sdk-dynamodb-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-dynamodb/aws-cpp-sdk-dynamodb-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-dynamodb/aws-cpp-sdk-dynamodb-targets-release.cmake"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2",
+		"source" : "C:/Users/TESTER/CLionProjects/untitled12_matrix"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

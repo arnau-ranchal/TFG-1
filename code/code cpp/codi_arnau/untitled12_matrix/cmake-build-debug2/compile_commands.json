@@ -1,0 +1,26 @@
+[
+{
+  "directory": "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DAWS_AUTH_USE_IMPORT_EXPORT -DAWS_CAL_USE_IMPORT_EXPORT -DAWS_CHECKSUMS_USE_IMPORT_EXPORT -DAWS_COMMON_USE_IMPORT_EXPORT -DAWS_COMPRESSION_USE_IMPORT_EXPORT -DAWS_CRT_CPP_USE_IMPORT_EXPORT -DAWS_ENABLE_IO_COMPLETION_PORTS -DAWS_EVENT_STREAM_USE_IMPORT_EXPORT -DAWS_HTTP_USE_IMPORT_EXPORT -DAWS_IO_USE_IMPORT_EXPORT -DAWS_MQTT_USE_IMPORT_EXPORT -DAWS_S3_USE_IMPORT_EXPORT -DAWS_SDKUTILS_USE_IMPORT_EXPORT -DAWS_SDK_VERSION_MAJOR=1 -DAWS_SDK_VERSION_MINOR=11 -DAWS_SDK_VERSION_PATCH=534 -DUSE_IMPORT_EXPORT -DUSE_IMPORT_EXPORT=1 -DUSE_WINDOWS_DLL_SEMANTICS -IC:\\Users\\TESTER\\Downloads\\eigen-3.4.0\\eigen-3.4.0 -external:IC:\\Users\\TESTER\\Downloads\\vcpkg-master\\vcpkg-master\\installed\\x64-windows\\include -external:W0 /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++17 -MDd -Zi /FoCMakeFiles\\untitled12.dir\\main.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\main.cpp",
+  "file": "C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\main.cpp",
+  "output": "CMakeFiles\\untitled12.dir\\main.cpp.obj"
+},
+{
+  "directory": "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DAWS_AUTH_USE_IMPORT_EXPORT -DAWS_CAL_USE_IMPORT_EXPORT -DAWS_CHECKSUMS_USE_IMPORT_EXPORT -DAWS_COMMON_USE_IMPORT_EXPORT -DAWS_COMPRESSION_USE_IMPORT_EXPORT -DAWS_CRT_CPP_USE_IMPORT_EXPORT -DAWS_ENABLE_IO_COMPLETION_PORTS -DAWS_EVENT_STREAM_USE_IMPORT_EXPORT -DAWS_HTTP_USE_IMPORT_EXPORT -DAWS_IO_USE_IMPORT_EXPORT -DAWS_MQTT_USE_IMPORT_EXPORT -DAWS_S3_USE_IMPORT_EXPORT -DAWS_SDKUTILS_USE_IMPORT_EXPORT -DAWS_SDK_VERSION_MAJOR=1 -DAWS_SDK_VERSION_MINOR=11 -DAWS_SDK_VERSION_PATCH=534 -DUSE_IMPORT_EXPORT -DUSE_IMPORT_EXPORT=1 -DUSE_WINDOWS_DLL_SEMANTICS -IC:\\Users\\TESTER\\Downloads\\eigen-3.4.0\\eigen-3.4.0 -external:IC:\\Users\\TESTER\\Downloads\\vcpkg-master\\vcpkg-master\\installed\\x64-windows\\include -external:W0 /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++17 -MDd -Zi /FoCMakeFiles\\untitled12.dir\\functions.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\functions.cpp",
+  "file": "C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\functions.cpp",
+  "output": "CMakeFiles\\untitled12.dir\\functions.cpp.obj"
+},
+{
+  "directory": "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DAWS_AUTH_USE_IMPORT_EXPORT -DAWS_CAL_USE_IMPORT_EXPORT -DAWS_CHECKSUMS_USE_IMPORT_EXPORT -DAWS_COMMON_USE_IMPORT_EXPORT -DAWS_COMPRESSION_USE_IMPORT_EXPORT -DAWS_CRT_CPP_USE_IMPORT_EXPORT -DAWS_ENABLE_IO_COMPLETION_PORTS -DAWS_EVENT_STREAM_USE_IMPORT_EXPORT -DAWS_HTTP_USE_IMPORT_EXPORT -DAWS_IO_USE_IMPORT_EXPORT -DAWS_MQTT_USE_IMPORT_EXPORT -DAWS_S3_USE_IMPORT_EXPORT -DAWS_SDKUTILS_USE_IMPORT_EXPORT -DAWS_SDK_VERSION_MAJOR=1 -DAWS_SDK_VERSION_MINOR=11 -DAWS_SDK_VERSION_PATCH=534 -DUSE_IMPORT_EXPORT -DUSE_IMPORT_EXPORT=1 -DUSE_WINDOWS_DLL_SEMANTICS -IC:\\Users\\TESTER\\Downloads\\eigen-3.4.0\\eigen-3.4.0 -external:IC:\\Users\\TESTER\\Downloads\\vcpkg-master\\vcpkg-master\\installed\\x64-windows\\include -external:W0 /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++17 -MDd -Zi /FoCMakeFiles\\untitled12.dir\\database.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\database.cpp",
+  "file": "C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\database.cpp",
+  "output": "CMakeFiles\\untitled12.dir\\database.cpp.obj"
+},
+{
+  "directory": "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2",
+  "command": "C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DAWS_AUTH_USE_IMPORT_EXPORT -DAWS_CAL_USE_IMPORT_EXPORT -DAWS_CHECKSUMS_USE_IMPORT_EXPORT -DAWS_COMMON_USE_IMPORT_EXPORT -DAWS_COMPRESSION_USE_IMPORT_EXPORT -DAWS_CRT_CPP_USE_IMPORT_EXPORT -DAWS_ENABLE_IO_COMPLETION_PORTS -DAWS_EVENT_STREAM_USE_IMPORT_EXPORT -DAWS_HTTP_USE_IMPORT_EXPORT -DAWS_IO_USE_IMPORT_EXPORT -DAWS_MQTT_USE_IMPORT_EXPORT -DAWS_S3_USE_IMPORT_EXPORT -DAWS_SDKUTILS_USE_IMPORT_EXPORT -DAWS_SDK_VERSION_MAJOR=1 -DAWS_SDK_VERSION_MINOR=11 -DAWS_SDK_VERSION_PATCH=534 -DUSE_IMPORT_EXPORT -DUSE_IMPORT_EXPORT=1 -DUSE_WINDOWS_DLL_SEMANTICS -IC:\\Users\\TESTER\\Downloads\\eigen-3.4.0\\eigen-3.4.0 -external:IC:\\Users\\TESTER\\Downloads\\vcpkg-master\\vcpkg-master\\installed\\x64-windows\\include -external:W0 /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++17 -MDd -Zi /FoCMakeFiles\\untitled12.dir\\database_main.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\database_main.cpp",
+  "file": "C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\database_main.cpp",
+  "output": "CMakeFiles\\untitled12.dir\\database_main.cpp.obj"
+}
+]

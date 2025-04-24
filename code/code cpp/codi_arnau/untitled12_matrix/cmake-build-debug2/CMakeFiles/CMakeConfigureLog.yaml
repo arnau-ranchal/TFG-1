@@ -1,0 +1,319 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake:204 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.43.34808/bin/Hostx64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Compilador de optimización de C/C++ de Microsoft (R) versión 19.43.34810 para x64
+      (C) Microsoft Corporation. Todos los derechos reservados.
+      
+      CMakeCCompilerId.c
+      Microsoft (R) Incremental Linker Version 14.43.34810.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCCompilerId.exe 
+      CMakeCCompilerId.obj 
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:1153 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:221 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting C compiler /showIncludes prefix:
+        main.c
+        Nota: inclusión del archivo: C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\cmake-build-debug2\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Nota: inclusión del archivo: "
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.43.34808/bin/Hostx64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Compilador de optimización de C/C++ de Microsoft (R) versión 19.43.34810 para x64
+      (C) Microsoft Corporation. Todos los derechos reservados.
+      
+      CMakeCXXCompilerId.cpp
+      Microsoft (R) Incremental Linker Version 14.43.34810.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCXXCompilerId.exe 
+      CMakeCXXCompilerId.obj 
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:1153 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:221 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting CXX compiler /showIncludes prefix:
+        main.c
+        Nota: inclusión del archivo: C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\cmake-build-debug2\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Nota: inclusión del archivo: "
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-5vd2du"
+      binary: "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-5vd2du"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-5vd2du
+        
+        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_6f388 && [1/2] C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_6f388.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_6f388.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_6f388.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_6f388.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_6f388.exe /implib:cmTC_6f388.lib /pdb:cmTC_6f388.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-eg2hs7"
+      binary: "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-eg2hs7"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-eg2hs7
+        
+        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_82991 && [1/2] C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /EHsc  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_82991.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_82991.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_82991.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_82991.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_82991.exe /implib:cmTC_82991.lib /pdb:cmTC_82991.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-common/aws-c-common-config.cmake:7 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-io/aws-c-io-config.cmake:7 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-http/aws-c-http-config.cmake:3 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-crt-cpp/aws-crt-cpp-config.cmake:3 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-core/aws-cpp-sdk-core-config.cmake:13 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/awssdk/AWSSDKConfig.cmake:306 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "CMakeLists.txt:15 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-gjngou"
+      binary: "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-gjngou"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/debug/lib/cmake;C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/lib/cmake;C:/Program Files/lib/cmake;C:/Program Files (x86)/lib/cmake;C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/lib/cmake;C:/Program Files (x86)/untitled12/lib/cmake;C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-common/modules"
+      VCPKG_INSTALLED_DIR: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-gjngou
+        
+        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_45edf && [1/2] C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\cl.exe  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_45edf.dir\\src.c.obj /FdCMakeFiles\\cmTC_45edf.dir\\ /FS -c C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\cmake-build-debug2\\CMakeFiles\\CMakeScratch\\TryCompile-gjngou\\src.c
+        FAILED: CMakeFiles/cmTC_45edf.dir/src.c.obj 
+        C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\cl.exe  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_45edf.dir\\src.c.obj /FdCMakeFiles\\cmTC_45edf.dir\\ /FS -c C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\cmake-build-debug2\\CMakeFiles\\CMakeScratch\\TryCompile-gjngou\\src.c
+        C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\cmake-build-debug2\\CMakeFiles\\CMakeScratch\\TryCompile-gjngou\\src.c(1): fatal error C1083: No se puede abrir el archivo incluir: 'pthread.h': No such file or directory
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckLibraryExists.cmake:71 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-common/aws-c-common-config.cmake:7 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-io/aws-c-io-config.cmake:7 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-http/aws-c-http-config.cmake:3 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-crt-cpp/aws-crt-cpp-config.cmake:3 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-core/aws-cpp-sdk-core-config.cmake:13 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/awssdk/AWSSDKConfig.cmake:306 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "CMakeLists.txt:15 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-sngght"
+      binary: "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-sngght"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/debug/lib/cmake;C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/lib/cmake;C:/Program Files/lib/cmake;C:/Program Files (x86)/lib/cmake;C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/lib/cmake;C:/Program Files (x86)/untitled12/lib/cmake;C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-common/modules"
+      VCPKG_INSTALLED_DIR: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-sngght
+        
+        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_39342 && [1/2] C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS -DCHECK_FUNCTION_EXISTS=pthread_create /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_39342.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_39342.dir\\ /FS -c C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\cmake-build-debug2\\CMakeFiles\\CMakeScratch\\TryCompile-sngght\\CheckFunctionExists.c
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_39342.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_39342.dir\\CheckFunctionExists.c.obj  /out:cmTC_39342.exe /implib:cmTC_39342.lib /pdb:cmTC_39342.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        FAILED: cmTC_39342.exe 
+        cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_39342.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_39342.dir\\CheckFunctionExists.c.obj  /out:cmTC_39342.exe /implib:cmTC_39342.lib /pdb:cmTC_39342.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        LINK Pass 1: command "C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_39342.dir\\CheckFunctionExists.c.obj /out:cmTC_39342.exe /implib:cmTC_39342.lib /pdb:cmTC_39342.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_39342.dir/intermediate.manifest CMakeFiles\\cmTC_39342.dir/manifest.res" failed (exit code 1104) with the following output:
+        LINK : fatal error LNK1104: no se puede abrir el archivo 'pthreads.lib'
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckLibraryExists.cmake:71 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-common/aws-c-common-config.cmake:7 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-io/aws-c-io-config.cmake:7 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-http/aws-c-http-config.cmake:3 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-crt-cpp/aws-crt-cpp-config.cmake:3 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-cpp-sdk-core/aws-cpp-sdk-core-config.cmake:13 (find_dependency)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/awssdk/AWSSDKConfig.cmake:306 (find_package)"
+      - "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake:893 (_find_package)"
+      - "CMakeLists.txt:15 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-aybiwv"
+      binary: "C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-aybiwv"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/debug/lib/cmake;C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/lib/cmake;C:/Program Files/lib/cmake;C:/Program Files (x86)/lib/cmake;C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/lib/cmake;C:/Program Files (x86)/untitled12/lib/cmake;C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows/share/aws-c-common/modules"
+      VCPKG_INSTALLED_DIR: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/CMakeScratch/TryCompile-aybiwv
+        
+        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_5b70e && [1/2] C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS -DCHECK_FUNCTION_EXISTS=pthread_create /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_5b70e.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_5b70e.dir\\ /FS -c C:\\Users\\TESTER\\CLionProjects\\untitled12_matrix\\cmake-build-debug2\\CMakeFiles\\CMakeScratch\\TryCompile-aybiwv\\CheckFunctionExists.c
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_5b70e.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_5b70e.dir\\CheckFunctionExists.c.obj  /out:cmTC_5b70e.exe /implib:cmTC_5b70e.lib /pdb:cmTC_5b70e.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        FAILED: cmTC_5b70e.exe 
+        cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_5b70e.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_5b70e.dir\\CheckFunctionExists.c.obj  /out:cmTC_5b70e.exe /implib:cmTC_5b70e.lib /pdb:cmTC_5b70e.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        LINK Pass 1: command "C:\\PROGRA~2\\MICROS~3\\2022\\BUILDT~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_5b70e.dir\\CheckFunctionExists.c.obj /out:cmTC_5b70e.exe /implib:cmTC_5b70e.lib /pdb:cmTC_5b70e.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_5b70e.dir/intermediate.manifest CMakeFiles\\cmTC_5b70e.dir/manifest.res" failed (exit code 1104) with the following output:
+        LINK : fatal error LNK1104: no se puede abrir el archivo 'pthread.lib'
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+...

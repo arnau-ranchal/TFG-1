@@ -1,0 +1,10 @@
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_TOOLCHAIN_FILE=C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/scripts/buildsystems/vcpkg.cmake -G Ninja -S C:\Users\TESTER\CLionProjects\untitled12_matrix -B C:\Users\TESTER\CLionProjects\untitled12_matrix\cmake-build-debug2
+-- Found AWS SDK for C++, Version: 1.11.534, Install Root:C:/Users/TESTER/Downloads/vcpkg-master/vcpkg-master/installed/x64-windows, Platform Prefix:, Platform Dependent Libraries: Userenv;version;ws2_32;Wininet;winhttp
+-- Components specified for AWSSDK: core;dynamodb, application will be depending on libs: aws-cpp-sdk-dynamodb;aws-cpp-sdk-core
+-- Try finding aws-cpp-sdk-core
+-- Found aws-cpp-sdk-core
+-- Try finding aws-cpp-sdk-dynamodb
+-- Found aws-cpp-sdk-dynamodb
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2

@@ -1,0 +1,20 @@
+# ninja log v5
+5	3470	7664965465548065	CMakeFiles/untitled12.dir/database.cpp.obj	e7e862c9d79c8f9c
+6	1973	7664965671521984	CMakeFiles/untitled12.dir/main.cpp.obj	f6e4815a73881c29
+10	5459	7664965485390398	CMakeFiles/untitled12.dir/functions.cpp.obj	66f0bf2bd57bacd1
+1973	4422	7664965674485972	untitled12.exe	e5b80cd04941e7cf
+0	13	0	clean	b26e0f42c341beb7
+4	1051	7664966247434312	CMakeFiles/untitled12.dir/database_main.cpp.obj	4021f778a62c5a9d
+8	1515	7664967320301775	CMakeFiles/untitled12.dir/database_main.cpp.obj	4021f778a62c5a9d
+4	1938	7664967324534021	CMakeFiles/untitled12.dir/main.cpp.obj	f6e4815a73881c29
+1938	4990	7664967329220212	untitled12.exe	692e83d03c5aece2
+5	1599	7664967672214623	CMakeFiles/untitled12.dir/main.cpp.obj	f6e4815a73881c29
+1599	3628	7664967674699654	untitled12.exe	692e83d03c5aece2
+11	1580	7664968818885904	CMakeFiles/untitled12.dir/database_main.cpp.obj	4021f778a62c5a9d
+4	2013	7664968823269374	CMakeFiles/untitled12.dir/main.cpp.obj	f6e4815a73881c29
+2013	4398	7664968827611205	untitled12.exe	692e83d03c5aece2
+4	1816	7664969384220918	CMakeFiles/untitled12.dir/main.cpp.obj	f6e4815a73881c29
+1817	3844	7664969386838303	untitled12.exe	692e83d03c5aece2
+9	1103	7664970307890305	CMakeFiles/untitled12.dir/database_main.cpp.obj	4021f778a62c5a9d
+5	1483	7664970311694873	CMakeFiles/untitled12.dir/main.cpp.obj	f6e4815a73881c29
+1484	3501	7664970315403178	untitled12.exe	692e83d03c5aece2

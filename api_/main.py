@@ -55,14 +55,17 @@ async def exponents(
     Calcula l'exponent `Pe`, 'E' i `RHO`.
     """
     # Resultat + Retron
-    result = lib.exponents( # Crida a la funció C++
+    # Allocate output buffer
+    result = (ctypes.c_float * 3)()
+    lib.exponents(
         ctypes.c_float(M),
-        typeM.encode('utf-8'),  # Codificamos string a C-style
+        typeM.encode('utf-8'),
         ctypes.c_float(SNR),
         ctypes.c_float(R),
-        ctypes.c_float(N)
+        ctypes.c_float(N),
+        result  # Pass the buffer
     )
-    values = [result[i] for i in range(3)]
+    values = list(result)  # Convert to Python list
 
     return {
         "Probabilidad de error": values[0],
@@ -108,6 +111,7 @@ async def generate_plot_from_function(plot_data: FunctionPlotRequest):
         x_vals = np.linspace(plot_data.rang_x[0], plot_data.rang_x[1], plot_data.points)
         y_vals = []
 
+        # TODO: Treure el for i adaptar la funció exponents per a que agafi un vector
         for x_point in x_vals:
             # Ajusta els valors segons la variable independent
             args = {
@@ -118,9 +122,15 @@ async def generate_plot_from_function(plot_data: FunctionPlotRequest):
             }
             args[plot_data.x] = x_point
 
-            # Crida a la funció exponents en C++
-            result = call_exponents(
-                args["M"], plot_data.typeModulation, args["SNR"], args["Rate"], args["N"]
+            # Allocate a new buffer for each call
+            result = (ctypes.c_float * 3)()
+            lib.exponents(
+                ctypes.c_float(args["M"]),
+                plot_data.typeModulation.encode('utf-8'),
+                ctypes.c_float(args["SNR"]),
+                ctypes.c_float(args["Rate"]),
+                ctypes.c_float(args["N"]),
+                result  # Pass the buffer
             )
             y_map = {
                 "ErrorProb": result[0],

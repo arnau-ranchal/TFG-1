@@ -1,0 +1,3 @@
+C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/untitled12.dir
+C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/edit_cache.dir
+C:/Users/TESTER/CLionProjects/untitled12_matrix/cmake-build-debug2/CMakeFiles/rebuild_cache.dir
