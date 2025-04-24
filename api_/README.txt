@@ -1,9 +1,3 @@
-Ulitms cambis (per actualitzar al GitHub): 
-- Dockerfile
-- graphics.js
-- package.json
-- main.py
-
 Per executar:
 1. Engegar el Docker Desktop
 2. Obrir terminal al projecte i fer: docker build -t tfg_api .
