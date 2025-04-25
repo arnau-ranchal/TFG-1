@@ -349,30 +349,39 @@ function zoomed(event) {
 
 
 function renderAll() {
+    if (!window.__svg || !window.__content) return;
+
     if (activePlots.length === 0) {
-        if (window.__content) window.__content.selectAll('*').remove();
-        // d3.select('#plot-controls-wrapper').style('display', 'none');
+        window.__content.selectAll('*').remove();
         drawDefaultGrid();
         return;
     }
 
-    if (!window.__svg || !window.__content) return;
-
     d3.select('#plot-container').style('display', 'block');
     d3.select('#plot-controls-wrapper').style('display', 'flex');
 
-    let allX = [], allY = [];
-    activePlots.forEach(p => { allX = allX.concat(p.x); allY = allY.concat(p.y); });
+    let allX = [], allY = [], allLog = false;
+    activePlots.forEach(p => {
+        allX = allX.concat(p.x);
+        allY = allY.concat(p.y);
+        if (p.plotType === 'log') allLog = true;
+    });
+
     if (allX.length === 0) return;
+
     const xExtent = d3.extent(allX);
     const yExtent = d3.extent(allY);
 
-    window.__xScale.domain(xExtent);
-    window.__yScale.domain(yExtent);
+    const xMin = allLog ? Math.max(xExtent[0], 1e-6) : xExtent[0];
+    const yMin = allLog ? Math.max(yExtent[0], 1e-6) : yExtent[0];
+
+    window.__xScale = (allLog ? d3.scaleLog() : d3.scaleLinear()).range([0, window.__innerWidth]);
+    window.__yScale = (allLog ? d3.scaleLog() : d3.scaleLinear()).range([window.__innerHeight, 0]);
+    window.__xScale.domain([xMin, xExtent[1]]);
+    window.__yScale.domain([yMin, yExtent[1]]);
 
     window.__svg.call(window.__zoom.transform, d3.zoomIdentity);
-
-    zoomed({ transform: d3.zoomIdentity });
+    setTimeout(() => zoomed({ transform: d3.zoomIdentity }), 0);
 
     const groups = window.__content.selectAll('.plot-group')
         .data(activePlots, d => d.plotId);
@@ -387,20 +396,28 @@ function renderAll() {
     window.__content.selectAll('.plot-group').each(function(d) {
         const g = d3.select(this);
         const lineGen = d3.line()
-            .curve(getCurve(d.lineType))
+            .curve(d3.curveLinear)
             .x((_, i) => window.__xScale(d.x[i]))
             .y((_, i) => window.__yScale(d.y[i]));
+
+        const dashMap = {
+            'solid': '',
+            'dashed': '6,4',
+            'dotted': '2,4',
+            'dot-dash': '4,2,2,2'
+        };
 
         g.select('path.line')
             .datum(d.y)
             .attr('fill', 'none')
             .attr('stroke', d.color)
             .attr('stroke-width', 2)
+            .attr('stroke-dasharray', dashMap[d.dashStyle] || '')
             .attr('d', lineGen);
 
         const pts = g.select('g.points').selectAll('circle')
             .data(d.x.map((xVal, i) => ({ x: xVal, y: d.y[i] })));
-        
+
         pts.enter().append('circle')
             .merge(pts)
             .attr('r', 4)
@@ -416,9 +433,8 @@ function renderAll() {
                     .style('opacity', 1);
             })
             .on('mouseout', () => window.__tooltip.style('opacity', 0));
-        
+
         pts.exit().remove();
-        
     });
 
     groups.exit().remove();
@@ -427,7 +443,12 @@ function renderAll() {
 }
 
 function getCurve(type) {
-    return { '-': d3.curveLinear, '--': d3.curveStep, 'o-': d3.curveBasis }[type] || d3.curveLinear;
+    return {
+        '-': d3.curveLinear,
+        '--': d3.curveStep,
+        'o-': d3.curveBasis,
+        ':': d3.curveCardinal
+    }[type] || d3.curveLinear;
 }
 
 
@@ -437,7 +458,23 @@ function drawInteractivePlot(x, y, opts) {
     const yLabel = document.getElementById('yVar')?.selectedOptions[0]?.text || `Y`;
     const xLabel = document.getElementById('xVar')?.selectedOptions[0]?.text || `X`;
     const label = `${yLabel} / ${xLabel}`;
-    activePlots.push({ plotId, x, y, color: opts.color || 'steelblue', lineType: opts.lineType || '-', label });
+
+    const color = opts.color || 'steelblue';
+    const dashStyle = opts.lineType || 'solid';
+    const plotType = opts.plotType || 'linear';
+
+    let xCopy = [...x];
+    let yCopy = [...y];
+
+    // Filtrar ceros o negativos si es log
+    if (plotType === 'log') {
+        const filtered = xCopy.map((val, i) => ({ x: val, y: yCopy[i] }))
+            .filter(p => p.x > 0 && p.y > 0);
+        xCopy = filtered.map(p => p.x);
+        yCopy = filtered.map(p => p.y);
+    }
+
+    activePlots.push({ plotId, x: xCopy, y: yCopy, color, dashStyle, label, plotType });
     renderAll();
 }
 

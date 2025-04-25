@@ -75,16 +75,27 @@
                     </div>
                     <div class="input-group">
                         <label for="lineType">Line Type:</label>
-                        <input type="text" id="lineType" placeholder="-">
+                        <select id="lineType">
+                            <option value="solid">Solid</option>
+                            <option value="dashed">Dashed</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dot-dash">Dot-Dash</option>
+                          </select>      
                     </div>
                     <div class="input-group">
                         <label for="lineColor">Color:</label>
-                        <input type="text" id="lineColor" placeholder="steelblue">
+                        <input list="colorOptions" id="lineColor" placeholder="steelblue">
+                        <datalist id="colorOptions">
+                            <option value="steelblue">
+                            <option value="tomato">
+                            <option value="orange">
+                            <option value="mediumseagreen">
+                            <option value="royalblue">
+                            <option value="orchid">
+                            <option value="goldenrod">
+                            <option value="crimson">
+                        </datalist>
                     </div>
-<!--                     <div class="input-group">
-                        <label for="plotTitle">Title:</label>
-                        <input type="text" id="plotTitle" placeholder="Graph title">
-                    </div> -->
                 </div>
 
                 <!-- From Function -->
