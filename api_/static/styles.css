@@ -223,6 +223,55 @@ form input, form select {
     flex-wrap: wrap;
 }
 
+
+.manual-input-row label {
+    font-size: 0.95em;
+    font-weight: 500;
+    color: #333;
+    min-width: 80px;
+    text-align: right;
+}
+
+.manual-input-row textarea {
+    flex: 1;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+    font-size: 0.9em;
+    min-width: 200px;
+}
+
+
+.manual-input-group label {
+    font-size: 1em;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.manual-input-group textarea {
+    width: 100%;
+    height: 100px;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+
+.manual-fullwidth-group label {
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+    text-align: center;
+}
+
 form button.compute-error, .funct2 button.create-graphic {
     display: block; /* Asegura que el botón ocupe toda la línea */
     margin: 0 auto; /* Centra el botón horizontalmente */
@@ -446,3 +495,69 @@ form button.compute-error:active,
     text-align: center;
 }
 
+.manual-fullwidth-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0;
+    padding: 0 10px;   
+    box-sizing: border-box;
+  }
+
+.manual-fullwidth-group textarea {
+    width: 100% !important;
+    height: 60px !important;
+    font-size: 1em;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+/* For error highlighting */
+.manual-fullwidth-group textarea.input-error {
+    border-color: #e74c3c;
+    background-color: #fff5f5;
+  }
+
+/* =============================
+   Override para manual-section
+   ============================= */
+
+#manual-section {
+    width: 100%;
+}
+
+/* Asegura que el wrapper ocupe todo el ancho del contenedor */
+#manual-section .casilla {
+    width: 100%;
+    padding: 0 10px;      /* respiración horizontal */
+    box-sizing: border-box;
+  }
+  
+
+#manual-section .manual-fullwidth-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0;
+    padding: 0 10px;   /* opcional, para respirar */
+    box-sizing: border-box;
+}
+
+#manual-section .manual-fullwidth-group label {
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: left;
+    color: #333;
+}
+
+/* Resalta errores igual que antes */
+#manual-section .casilla textarea.input-error {
+    border-color: #e74c3c;
+    background-color: #fff5f5;
+}
+  

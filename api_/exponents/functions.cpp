@@ -2572,7 +2572,7 @@ double GD_co(double &r, double &rho, double &rho_interpolated, int num_iteration
 
     double max_g;
     rho = initial_guess(r, E0_0, E0_1, E0_prime_0, E0_prime_1, max_g);
-    cout << "rho ig: " << rho << endl;
+    //cout << "rho ig: " << rho << endl;
 
     rho_interpolated = rho;
 
@@ -2792,7 +2792,7 @@ double NM_co(double &r, double &rho, int num_iterations, int n, bool updateR) {
 
     double max_g;
     rho = initial_guess(r, E0_0, E0_1, E0_prime_0, E0_prime_1, max_g);
-    cout << "rho ig: " << rho << endl;
+    //cout << "rho ig: " << rho << endl;
 
     for (int i = 0; i < num_iterations; ++i) {
 
@@ -3046,7 +3046,7 @@ double NAG_co(double &r, double &rho, double learning_rate, int num_iterations, 
     //if(E0_prime_1 )
     double max_g;
     rho = initial_guess(r, E0_0, E0_1, E0_prime_0, E0_prime_1, max_g);
-    cout << "rho ig: " << rho << endl;
+    //cout << "rho ig: " << rho << endl;
 
     E_0_co(r, rho + 0.0000001, grad_rho, e0);
     double E0_prime_guess_plus = grad_rho;

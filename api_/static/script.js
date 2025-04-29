@@ -127,19 +127,28 @@ function plotFromFunction() {
 
 /* Plot Manually */
 function plotManually() {
-    const xInput = document.getElementById('xValues').value.trim();
-    const yInput = document.getElementById('yValues').value.trim();
+    const xInputEl = document.getElementById('xValues');
+    const yInputEl = document.getElementById('yValues');
+    const xInput = xInputEl.value.trim();
+    const yInput = yInputEl.value.trim();
     const color = document.getElementById('lineColor').value || 'steelblue';
     const plotType = document.getElementById('plotType').value;
     const lineType = document.getElementById('lineType').value || '-';
+    //const manualTitle = document.getElementById('manualTitle').value || 'Manual Graph';
+    const manualTitle = document.getElementById('manualTitle').value.trim();
 
     const resultDiv = document.getElementById('plot-result');
     resultDiv.innerHTML = "";
     resultDiv.classList.remove('show');
 
+    // Reset styles
+    xInputEl.classList.remove('input-error');
+    yInputEl.classList.remove('input-error');
+
     try {
-        // Validar inputs
         if (!xInput || !yInput) {
+            if (!xInput) xInputEl.classList.add('input-error');
+            if (!yInput) yInputEl.classList.add('input-error');
             throw new Error("Missing input values.");
         }
 
@@ -147,14 +156,17 @@ function plotManually() {
         const y = yInput.split(',').map(str => Number(str.trim()));
 
         if (x.length !== y.length) {
+            xInputEl.classList.add('input-error');
+            yInputEl.classList.add('input-error');
             throw new Error("Mismatched array lengths.");
         }
 
         if (x.some(isNaN) || y.some(isNaN)) {
+            xInputEl.classList.add('input-error');
+            yInputEl.classList.add('input-error');
             throw new Error("Invalid number in inputs.");
         }
 
-        // Ordenar x
         const sorted = x.map((val, i) => ({ x: val, y: y[i] }))
             .sort((a, b) => a.x - b.x);
 
@@ -164,15 +176,17 @@ function plotManually() {
         drawInteractivePlot(xSorted, ySorted, {
             color: color,
             lineType: lineType,
-            plotType: plotType
+            plotType: plotType,
+            label: manualTitle   // si es cadena vacía, lo ignoraremos más abajo
         });
 
     } catch (error) {
         console.error("Error plotting manual data:", error);
-        resultDiv.innerHTML = `<p style="color: red; font-weight: bold;">⚠️ Unable to process the data in order to plot it manually. Please verify your inputs.</p>`;
+        resultDiv.innerHTML = `<p style="color: red; font-weight: bold;">⚠️ Unable to process the data. Please check your input format.</p>`;
         resultDiv.classList.add('show');
     }
 }
+
 
 // Interactive multi-plot with zoom, grid, tooltip, overlay & removal
 let activePlots = [];
@@ -442,22 +456,20 @@ function renderAll() {
     d3.select('#plot-controls-wrapper').style('display', 'flex');
 }
 
-function getCurve(type) {
-    return {
-        '-': d3.curveLinear,
-        '--': d3.curveStep,
-        'o-': d3.curveBasis,
-        ':': d3.curveCardinal
-    }[type] || d3.curveLinear;
-}
-
 
 function drawInteractivePlot(x, y, opts) {
     opts = opts || {};
     const plotId = `plot-${plotIdCounter++}`;
-    const yLabel = document.getElementById('yVar')?.selectedOptions[0]?.text || `Y`;
-    const xLabel = document.getElementById('xVar')?.selectedOptions[0]?.text || `X`;
-    const label = `${yLabel} / ${xLabel}`;
+    // Generar el label: si nos llega opts.label lo usamos, si no, el default de From Function
+    let label;
+    if (opts.label && opts.label.length > 0) {
+      label = opts.label;
+    } else {
+      const yLabel = document.getElementById('yVar')?.selectedOptions[0]?.text || 'Y';
+      const xLabel = document.getElementById('xVar')?.selectedOptions[0]?.text || 'X';
+      label = `${yLabel} / ${xLabel}`;
+    }
+
 
     const color = opts.color || 'steelblue';
     const dashStyle = opts.lineType || 'solid';
@@ -494,9 +506,11 @@ function updatePlotListUI() {
         document.getElementById('plot-output').appendChild(container);
     }
     container.innerHTML = '<h4>Active plots:</h4>';
-    activePlots.forEach((p, i) => {
+
+    activePlots.forEach(p => {
         const item = document.createElement('div');
         item.className = `legend-item ${p.plotId}`;
+        item.dataset.plotId = p.plotId;                  // ① guardamos el id
         item.style.margin = '5px 0';
         item.style.cursor = 'pointer';
         item.style.display = 'grid';
@@ -508,16 +522,38 @@ function updatePlotListUI() {
         item.style.boxSizing = 'border-box';
         item.style.paddingRight = '10px';
 
+        // colorBox (igual que antes)…
         const colorBox = document.createElement('span');
         colorBox.style.display = 'inline-block';
         colorBox.style.width = '15px';
         colorBox.style.height = '15px';
         colorBox.style.background = p.color;
 
+        // Aquí va el texto editable
         const textSpan = document.createElement('span');
         textSpan.textContent = p.label;
         textSpan.style.wordBreak = 'break-word';
+        textSpan.addEventListener('dblclick', () => {
+            // ② crear input inplace
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = p.label;
+            input.style.width = '100%';
+            // si pulsa Enter, hacemos blur para disparar el commit
+            input.addEventListener('keydown', e => {
+                if (e.key === 'Enter') input.blur();
+            });
+            // al perder foco, actualizo label y reconstruyo UI
+            input.addEventListener('blur', () => {
+                const newLabel = input.value.trim();
+                if (newLabel) p.label = newLabel;
+                updatePlotListUI();
+            });
+            textSpan.replaceWith(input);
+            input.focus();
+        });
 
+        // botón de eliminar (igual que antes)…
         const btn = document.createElement('button');
         btn.textContent = '❌ Remove';
         btn.type = 'button';
@@ -533,6 +569,7 @@ function updatePlotListUI() {
         item.addEventListener('mouseout', () => highlightPlot(p.plotId, false));
     });
 }
+
 
 function removePlot(plotId) {
     activePlots = activePlots.filter(p => p.plotId !== plotId);

@@ -6,8 +6,6 @@ from pydantic import BaseModel
 import os
 import ctypes
 import numpy as np
-import subprocess
-import json
 
 
 app = FastAPI()
@@ -107,11 +105,14 @@ class FunctionPlotRequest(BaseModel):
 @app.post("/plot_function")
 async def generate_plot_from_function(plot_data: FunctionPlotRequest):
     try:
-        # Genera els punts x
-        # TODO: En el cas de que x = M o x = N, han de ser enters
-        #if plot_data.x in ["M", "N"]:
+        # Generar valores x asegurando enteros para M y N
+        if plot_data.x in ["M", "N"]:
+            raw = np.linspace(plot_data.rang_x[0], plot_data.rang_x[1], plot_data.points)
+            # Redondear a enteros y eliminar duplicados, ordenados
+            x_vals = np.unique(np.round(raw).astype(int))
+        else:
+            x_vals = np.linspace(plot_data.rang_x[0], plot_data.rang_x[1], plot_data.points)
 
-        x_vals = np.linspace(plot_data.rang_x[0], plot_data.rang_x[1], plot_data.points)
         y_vals = []
 
         for x_point in x_vals:
@@ -148,3 +149,4 @@ async def generate_plot_from_function(plot_data: FunctionPlotRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error generating plot data: {str(e)}")
+    

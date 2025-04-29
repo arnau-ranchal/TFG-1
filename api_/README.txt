@@ -1,15 +1,9 @@
-Ulitms cambis (per actualitzar al GitHub): 
-- Dockerfile
-- graphics.js
-- package.json
-- main.py
-
 Per executar:
 1. Engegar el Docker Desktop
 2. Obrir terminal al projecte i fer: docker build -t tfg_api .
 3. Ara per executar en local: docker run -p 8000:8000 tfg_api  
 4. Obrir navegador i anar a localhost:8000
-5. Pel Swagger de FastApi anar a localhost:8000/docs
+5.(OPCIONAL) Pel Swagger de FastApi anar a localhost:8000/docs
 6. Al executar les funcions desde el navegador pots veure la seva resposta al POST/GET (dels Endpoints) a la terminal
 7. Un cop acabes de jugar amb la API, ves a la terminal on has executat el projecte i fes ctrl+C
 8. Ara para i neteja els teus contenidors en la mateixa terminal amb docker rm -f $(docker ps -aq) 
