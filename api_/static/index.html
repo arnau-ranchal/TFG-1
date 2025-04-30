@@ -202,12 +202,25 @@
                         <button type="button" onclick="plotManually()">Plot Manually</button>
                     </div>
                 </div>
-                
-       
+                <!-- Plot output -->
                 <div id="plot-output"></div>
             </form>
         </article>
+        <!-- CHATBOT SECTION -->
+        <article class="funct3">
+            <h2 id="chatbot">Chatbot:</h2>
+            <div class="chatbox">
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Ask the assistant something..." />
+                <button type="button" class="send-button" onclick="sendMessage()">➤</button>
+            </div>
+            </div>
+            <div class="button-group">
+                <button type="button", class="create-graphic" onclick="clearChat()">🗑️ New Chat</button>
+            </div>
+              
+        </article>
         </section>
-
 </body>
 </html>

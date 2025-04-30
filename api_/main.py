@@ -7,6 +7,11 @@ import os
 import ctypes
 import numpy as np
 
+# Importar mòdul chatbot
+import sys
+sys.path.append("chatbot")
+from chatbot.chatbot import respond
+
 
 app = FastAPI()
 
@@ -101,7 +106,7 @@ class FunctionPlotRequest(BaseModel):
     lineType: str = "-"
     plotType: str = "linear"
 
-# Funció que crida a clitPlot.js per generar grafics en SVG
+# Endpoint per generar gràfiques a partir de funcions predefinides
 @app.post("/plot_function")
 async def generate_plot_from_function(plot_data: FunctionPlotRequest):
     try:
@@ -150,3 +155,17 @@ async def generate_plot_from_function(plot_data: FunctionPlotRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error generating plot data: {str(e)}")
     
+# ------------------------ CHATBOT -------------------------------------------------------------------------
+class ChatbotRequest(BaseModel):
+    message: str
+
+@app.post("/chatbot")
+async def chatbot_with_bot(request: ChatbotRequest):
+    """
+    Endpoint per interactuar amb el chatbot.
+    """
+    try:
+        response = respond(request.message)
+        return {"response": response}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error in chatbot: {str(e)}")    

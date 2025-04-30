@@ -572,15 +572,19 @@ function updatePlotListUI() {
 
 
 function removePlot(plotId) {
+    const removedPlot = activePlots.find(p => p.plotId === plotId);
     activePlots = activePlots.filter(p => p.plotId !== plotId);
     renderAll();
     updatePlotListUI();
+
     if (activePlots.length === 0 && window.__content) {
         window.__content.selectAll('*').remove();
-        // d3.select('#plot-controls-wrapper').style('display', 'none');
-        drawDefaultGrid();
+
+        // Si se eliminó un gráfico logarítmico, forzamos la escala log
+        drawDefaultGrid(removedPlot?.plotType === 'log');
     }
 }
+
 
 function highlightPlot(plotId, highlight) {
     const group = d3.select(`.plot-group.${plotId}`);
@@ -602,11 +606,18 @@ function highlightPlot(plotId, highlight) {
     }
 }
 
-function drawDefaultGrid() {
-    // Fixa el domini que vulguis veure al carregar (per exemple de -10 a 10)
-    window.__xScale.domain([-10, 10]);
-    window.__yScale.domain([-10, 10]);
-    // Crida a zoomed per dibuixar la graella inicial
+function drawDefaultGrid(forceLog = false) {
+    const useLog = forceLog;
+
+    window.__xScale = (useLog ? d3.scaleLog() : d3.scaleLinear()).range([0, window.__innerWidth]);
+    window.__yScale = (useLog ? d3.scaleLog() : d3.scaleLinear()).range([window.__innerHeight, 0]);
+
+    const defaultMin = useLog ? 1e-2 : -10;
+    const defaultMax = 10;
+
+    window.__xScale.domain([defaultMin, defaultMax]);
+    window.__yScale.domain([defaultMin, defaultMax]);
+
     zoomed({ transform: d3.zoomIdentity });
 }
 
@@ -645,3 +656,47 @@ function toggleManualInputs() {
     });
     window.addEventListener('DOMContentLoaded', () => xVarSelect.dispatchEvent(new Event('change')));
 })();
+
+// ------------------------ CHATBOT SCRIPT -----------------------------------
+function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    const chatBox = document.getElementById('chat-messages');
+
+    const userMsg = document.createElement('div');
+    userMsg.className = 'chat-bubble user';
+    userMsg.textContent = "🧑‍💻 " + msg;
+    chatBox.appendChild(userMsg);
+
+    input.value = '';
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+    })
+    .then(res => res.json())
+    .then(data => {
+        const botMsg = document.createElement('div');
+        botMsg.className = 'chat-bubble bot';
+        botMsg.textContent = "🤖 " + data.response;
+        chatBox.appendChild(botMsg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    })
+    .catch(err => {
+        const errMsg = document.createElement('div');
+        errMsg.className = 'chat-bubble error';
+        errMsg.textContent = "⚠️ Error: " + err.message;
+        chatBox.appendChild(errMsg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    });
+}
+
+function clearChat() {
+    const chatBox = document.getElementById('chat-messages');
+    chatBox.innerHTML = ''; // Borra todo el historial de mensajes
+}
+

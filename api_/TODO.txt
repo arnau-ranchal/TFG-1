@@ -1,7 +1,3 @@
-- Passar funcions de MATLAB a C++ (a la carpeta de exponents)
-- Afegir títol + llegenda als gràfics (tant al function com al manual)
-- Arreglar Plot Type y Line Type
-- Millorar CSS de l'opció Manual
-- Bueno en general, organitzar millor el HTML y CSS (és un caos)
-- Potser canviar les alertes del FromFunction a displays amb el HTML...
-- Opció per poder afegir i elimina funcions...
+- Arreglar que cuando se elimina el plot y es Log este se carga el grid y los ejes aaaaaa
+
+- Afegir el chat en algun lloc
