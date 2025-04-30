@@ -7,7 +7,7 @@
     <!-- Estil del html -->
     <!-- <link rel="stylesheet" href="styles.css"/> --> <!-- Per obrir directament al navegador -->
     <!--     <link rel="stylesheet" href="/static/styles.css"> Pel docker -->
-    <link rel="stylesheet" href="/static/styles.css?v=1.4">
+    <link rel="stylesheet" href="/static/styles.css?v=1.5">
 
 
     <!-- Importa D3 -->
@@ -16,7 +16,7 @@
     <!-- Les funcions estan definides a script.js -->
     <!-- <script src="script.js"></script> --> <!-- Pel obrir directament amb el navegador -->
     <!-- <script src="/static/script.js"></script> Pel docker -->
-    <script src="/static/script.js?v=1.4"></script>
+    <script src="/static/script.js?v=1.5"></script>
 
 
 </head>
@@ -107,7 +107,7 @@
                         <label for="yVar">Y:</label>
                         <select id="yVar">
                             <!-- Type function -->
-                            <option value="ErrorProb">Probability error</option>
+                            <option value="ErrorProb">Error probability</option>
                             <option value="Exponents">Exponents</option>
                             <option value="Rho">Optimal rho</option>
                         </select>
@@ -212,7 +212,7 @@
             <div class="chatbox">
             <div class="chat-messages" id="chat-messages"></div>
             <div class="chat-input-container">
-                <input type="text" id="chat-input" placeholder="Ask the assistant something..." />
+                <input type="text" id="chat-input" placeholder="Ask the chat something..." />
                 <button type="button" class="send-button" onclick="sendMessage()">➤</button>
             </div>
             </div>

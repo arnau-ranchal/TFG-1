@@ -667,13 +667,13 @@ function sendMessage() {
 
     const userMsg = document.createElement('div');
     userMsg.className = 'chat-bubble user';
-    userMsg.textContent = "🧑‍💻 " + msg;
+    userMsg.textContent = msg + "🧑‍💻 ";
     chatBox.appendChild(userMsg);
 
     input.value = '';
     chatBox.scrollTop = chatBox.scrollHeight;
 
-    fetch('/chat', {
+    fetch('/chatbot', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: msg })
