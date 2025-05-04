@@ -94,7 +94,7 @@ function plotFromFunction() {
         plotType
     };
 
-    console.log("Sending payload to /plot_function:", payload);
+    /* console.log("Sending payload to /plot_function:", payload); */
 
     document.getElementById('plot-result').innerHTML = "";
     document.getElementById('plot-result').classList.remove('show');
