@@ -41,6 +41,8 @@ lib.exponents.argtypes = (
     ctypes.c_char_p, 
     ctypes.c_float, 
     ctypes.c_float, 
+    ctypes.c_float,
+    ctypes.c_float,
     ctypes.c_float
 )
 lib.exponents.restype = ctypes.POINTER(ctypes.c_float)
@@ -48,11 +50,13 @@ lib.exponents.restype = ctypes.POINTER(ctypes.c_float)
 # Funció que crida a la funció exponents
 @app.get("/exponents")
 async def exponents(
-    M: float = Query(1, description="Modulation"),  # Asegurar que sea int
+    M: float = Query(1, description="Modulation"), 
     typeM: str = Query("PAM", description="Tipo de modulación: PAM, QAM, etc."),
-    SNR: float = Query(1.0, description="Signal to Noise Ratio"),  # Asegurar float con decimal
-    R: float = Query(1.0, description="Rate"),  # Asegurar float con decimal
-    N: float = Query(1, description="quadrature")  # Asegurar que sea int
+    SNR: float = Query(1.0, description="Signal to Noise Ratio"), 
+    R: float = Query(1.0, description="Rate"), 
+    N: float = Query(1, description="quadrature"),
+    n: float = Query(1, description="Code length"),
+    th: float = Query(1, description="Threshold"),
 ):
     """  
     Calcula l'exponent `Pe`, 'E' i `RHO`.
@@ -66,6 +70,8 @@ async def exponents(
         ctypes.c_float(SNR),
         ctypes.c_float(R),
         ctypes.c_float(N),
+        ctypes.c_float(n),
+        ctypes.c_float(th),
         result  # Pass the buffer
     )
     values = list(result)  # Convert to Python list
@@ -77,7 +83,7 @@ async def exponents(
     }
 
 # ------------------------ GRAPHICS -------------------------------------------------------------------------
-def call_exponents(M: float, typeModulation: str, SNR: float, Rate: float, N: float) -> list[float]:
+def call_exponents(M: float, typeModulation: str, SNR: float, Rate: float, N: float, n:float, th: float) -> list[float]:
     """
     Wrapper para la función C++ 'exponents' que retorna una lista de 3 valores:
     [Probabilidad de error, Exponent, rho óptima]
@@ -87,7 +93,9 @@ def call_exponents(M: float, typeModulation: str, SNR: float, Rate: float, N: fl
         typeModulation.encode('utf-8'),  # Convertir string a C-style
         ctypes.c_float(SNR),
         ctypes.c_float(Rate),
-        ctypes.c_float(N)
+        ctypes.c_float(N),
+        ctypes.c_float(n),
+        ctypes.c_float(th)
     )
     return [result_ptr[i] for i in range(3)]
 
@@ -102,6 +110,8 @@ class FunctionPlotRequest(BaseModel):
     SNR: float
     Rate: float
     N: float
+    n: float
+    th: float
     color: str = "steelblue"
     lineType: str = "-"
     plotType: str = "linear"
@@ -111,7 +121,7 @@ class FunctionPlotRequest(BaseModel):
 async def generate_plot_from_function(plot_data: FunctionPlotRequest):
     try:
         # Generar valores x asegurando enteros para M y N
-        if plot_data.x in ["M", "N"]:
+        if plot_data.x in ["M", "N", "n"]:
             raw = np.linspace(plot_data.rang_x[0], plot_data.rang_x[1], plot_data.points)
             # Redondear a enteros y eliminar duplicados, ordenados
             x_vals = np.unique(np.round(raw).astype(int))
@@ -126,7 +136,9 @@ async def generate_plot_from_function(plot_data: FunctionPlotRequest):
                 "M": plot_data.M,
                 "SNR": plot_data.SNR,
                 "Rate": plot_data.Rate,
-                "N": plot_data.N
+                "N": plot_data.N,
+                "n": plot_data.n,
+                "th": plot_data.th
             }
             args[plot_data.x] = x_point
 
@@ -138,6 +150,8 @@ async def generate_plot_from_function(plot_data: FunctionPlotRequest):
                 ctypes.c_float(args["SNR"]),
                 ctypes.c_float(args["Rate"]),
                 ctypes.c_float(args["N"]),
+                ctypes.c_float(args["n"]),
+                ctypes.c_float(args["th"]),
                 result  # Pass the buffer
             )
             y_map = {

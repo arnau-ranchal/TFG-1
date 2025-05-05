@@ -12,13 +12,15 @@ function calculateExponents(event) {
     const SNR = document.getElementById('SNR').value;
     const R = document.getElementById('R').value;
     const N = document.getElementById('N').value;
+    const n = document.getElementById('n').value;
+    const th = document.getElementById('th').value;
     const resultDiv = document.getElementById('result');
 
     // Neteja resultats anteriors
     resultDiv.innerHTML = "";
     resultDiv.classList.remove('show');
 
-    fetch(`/exponents?M=${M}&typeM=${typeM}&SNR=${SNR}&R=${R}&N=${N}`)
+    fetch(`/exponents?M=${M}&typeM=${typeM}&SNR=${SNR}&R=${R}&N=${N}&n=${n}&th=${th}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Server response not OK");
@@ -54,8 +56,10 @@ function plotFromFunction() {
     const SNR = document.getElementById('fixedSNR').value;
     const Rate = document.getElementById('fixedRate').value;
     const N = document.getElementById('fixedN').value;
+    const n = document.getElementById('fixedn').value;
+    const th = document.getElementById('fixedth').value;
 
-    const inputs = { M, SNR, Rate, N };
+    const inputs = { M, SNR, Rate, N, n, th };
 
     // Validar inputs
     const resultDiv = document.getElementById('plot-result');
@@ -89,6 +93,8 @@ function plotFromFunction() {
         SNR: parseFloat(SNR) || 0,
         Rate: parseFloat(Rate) || 0,
         N: parseFloat(N) || 0,
+        n: parseFloat(n) || 0,
+        th: parseFloat(th) || 0,
         color,
         lineType,
         plotType
@@ -639,7 +645,9 @@ function toggleManualInputs() {
         M: document.getElementById('fixedM'),
         SNR: document.getElementById('fixedSNR'),
         Rate: document.getElementById('fixedRate'),
-        N: document.getElementById('fixedN')
+        N: document.getElementById('fixedN'),
+        n: document.getElementById('fixedn'),
+        th: document.getElementById('fixedth')
     };
     xVarSelect.addEventListener('change', () => {
         const sel = xVarSelect.value;

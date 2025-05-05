@@ -16,7 +16,7 @@
     <!-- Les funcions estan definides a script.js -->
     <!-- <script src="script.js"></script> --> <!-- Pel obrir directament amb el navegador -->
     <!-- <script src="/static/script.js"></script> Pel docker -->
-    <script src="/static/script.js?v=1.5"></script>
+    <script src="/static/script.js?v=1.9"></script>
 
 
 </head>
@@ -32,10 +32,12 @@
             <h2 id="exponents">Exponents:</h2>
             <form method="get">
                 <div class="form-row">
+                    <!-- Modulation -->
                     <div class="input-group">
                         <label for="M">Modulation</label>
                         <input type="text" id="M" placeholder="M...">
                     </div>
+                    <!-- Type Modulation -->
                     <div class="input-group">
                         <label for="TypeModulation">Type</label>
                         <select id="TypeModulation">
@@ -44,17 +46,29 @@
                             <option value="PSK">PSK</option>
                         </select>
                     </div>
+                    <!-- SNR -->
                     <div class="input-group">
                         <label for="SNR">SNR</label>
                         <input type="text" id="SNR" placeholder="SNR...">
                     </div>
+                    <!-- Rate -->
                     <div class="input-group">
                         <label for="R">Rate</label>
                         <input type="text" id="R" placeholder="R...">
                     </div>
+                    <!-- Quadrature -->
                     <div class="input-group">
                         <label for="N">Quadrature</label>
                         <input type="text" id="N" placeholder="N...">
+                    </div>
+                    <!-- Longitud codi / Threshold -->
+                    <div class="input-group">
+                        <label for="n">Code Length</label>
+                        <input type="text" id="n" placeholder="n...">
+                    </div>
+                    <div class="input-group">
+                        <label for="th">Threshold</label>
+                        <input type="text" id="th" placeholder="Threshold...">
                     </div>
                 </div>
                 <button type="submit" class="compute-error" onclick="calculateExponents(event)">Compute error</button>
@@ -120,6 +134,8 @@
                             <option value="SNR">SNR</option>
                             <option value="Rate">Rate</option>
                             <option value="N">N</option>
+                            <option value="n">n</option>
+                            <option value="th">Threshold</option>
                         </select>
                     </div>
                     <!-- Rang x -->
@@ -163,6 +179,15 @@
                     <div class="input-group">
                         <label for="fixedN">Quadrature</label>
                         <input type="text" id="fixedN" placeholder="N...">
+                    </div>
+                    <!-- Longitud codi / Threshold -->
+                    <div class="input-group">
+                        <label for="fixedn">Code Length</label>
+                        <input type="text" id="fixedn" placeholder="n...">
+                    </div>
+                    <div class="input-group">
+                        <label for="fixedth">Threshold</label>
+                        <input type="text" id="fixedth" placeholder="Threshold...">
                     </div>
                 </div>
 
