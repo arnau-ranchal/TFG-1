@@ -1370,7 +1370,7 @@ void setX(int npoints, string xmode) {
         for (int n = 0; n < npoints; n++) X[n] = (double(rand()) + I * double(rand()));
         //X = {-1/sqrt(2)-I*double(1/sqrt(2)), -1/sqrt(2)+I*double(1/sqrt(2)), +1/sqrt(2)-I*double(1/sqrt(2)), 1/sqrt(2)+I*double(1/sqrt(2))};
     } else {
-        cout << "ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+        /* cout << "ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; */
     }
 
     //cout << "X: " << X_mat << endl;
