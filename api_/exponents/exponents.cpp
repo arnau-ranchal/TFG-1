@@ -6,7 +6,7 @@
 
 extern "C" {
 
-    float* exponents(float M, const char* typeM, float SNR, float R, float N, float n, float threshold, float* results) {
+    float* exponents(float M, const char* typeM, float SNR, float R, float N, float* results) {
 
         int it = 20;
 
@@ -28,7 +28,9 @@ extern "C" {
         //std::cout << "e0: " << e0 << endl;
         //std::cout << "rho_gd: " << rho_gd << endl;
 
-        results[0] = threshold + n; // Pe
+        int n_ = 100;
+
+        results[0] = pow(2,-n_*e0); // Pe
         results[1] = e0; // exp
         results[2] = rho_gd;
         //results[2] = 1.1;
