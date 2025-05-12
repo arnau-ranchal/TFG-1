@@ -117,5 +117,5 @@ def chat_loop(api_key):
         messages.append({"role": "assistant", "content": msg.content})
 
 if __name__ == "__main__":
-    API_KEY = "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"
+    API_KEY = ""
     chat_loop(API_KEY)

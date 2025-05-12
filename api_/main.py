@@ -159,7 +159,7 @@ async def generate_plot_from_function(plot_data: FunctionPlotRequest):
 class ChatbotRequest(BaseModel):
     message: str
 
-API_KEY = "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"
+API_KEY = ""
 
 @app.post("/chatbot")
 async def chatbot_with_bot(request: ChatbotRequest):
